@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.list {
+  position: relative;
+  padding: 0 10px;
+}
+.list:after {
+  content: "";
+  position: absolute;
+  background-color: #fc1348;
+  height: 3px;
+  width: 0%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+.list:hover:after {
+  width: 100%;
+}
