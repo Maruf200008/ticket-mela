@@ -1,113 +1,68 @@
 "use client";
 
-import {
-  AiFillCaretLeft,
-  AiFillCaretRight,
-  AiFillGithub,
-  AiFillLinkedin,
-} from "react-icons/ai";
-import { FaFacebookF } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import poster1 from "../images/poster1.jpg";
-import poster2 from "../images/poster2.jpg";
-import poster3 from "../images/poster3.jpg";
-import poste4 from "../images/poster4.jpg";
-import poster5 from "../images/poster5.jpg";
-import poster6 from "../images/poster6.jpg";
-import poster7 from "../images/poster7.jpg";
-import poster8 from "../images/poster8.jpg";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
 import Image from "next/image";
-import Link from "next/link";
-import { Autoplay, Navigation } from "swiper/modules";
+import banner from "../images/heroBanner.jpg";
 
 export default function Hero() {
-  const moviePoster = [
-    poster1,
-    poster2,
-    poster3,
-    poste4,
-    poster5,
-    poster6,
-    poster7,
-    poster8,
-  ];
   return (
     <div>
-      <Swiper
-        navigation={{
-          nextEl: ".buton-next-slide",
-          prevEl: ".buton-prev-slide",
-        }}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay, Navigation]}
-        className="mySwiper  relative group  "
-      >
-        {moviePoster.map((poster, index) => (
-          <SwiperSlide key={index}>
-            <div className=" w-[100%] h-[600px] ">
-              <div className=" flex items-center justify-center">
-                <Image src={poster} alt="poster" />
+      <div>
+        <div className=" w-full h-[700px] overflow-hidden relative">
+          <div className=" bg-gradient-to-t from-black  absolute h-full w-full">
+            <div className=" flex items-center justify-center my-[300px] flex-col">
+              <h1 className=" text-[50px] text-white font-bold uppercase text-center">
+                Unlimited movies
+              </h1>
+              <p className=" text-white text-xl">
+                The Best Movie Ticket Distributor
+              </p>
+
+              <div className=" mt-10 w-[500px]">
+                <form>
+                  <label className="mb-2 text-sm font-medium text-gray-900 sr-only">
+                    Search
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                      <svg
+                        className="w-4 h-4 text-gray-500 "
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="search"
+                      className=" focus:outline-none block w-full p-4 pl-10 text-sm text-white border border-gray-600 rounded-lg bg-black/50"
+                      placeholder="Search your fevourite movies..."
+                      required
+                    />
+                    <button
+                      type="submit"
+                      className="text-white absolute right-2.5 bottom-2.5 bg-primary  font-medium rounded-lg text-sm px-4 py-2 "
+                    >
+                      Search
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
-          </SwiperSlide>
-        ))}
-
-        <div className="buton-next-slide z-10 group-hover:left-[50px] -left-[23rem] mr-11 w-[40px] h-[40px] bg-primary rounded-md cursor-pointer grid place-items-center text-white absolute top-[50%] ease-in duration-300">
-          <AiFillCaretRight />
-        </div>
-        <div className="buton-prev-slide z-10 group-hover:right-0  -right-[23rem] mr-11 w-[40px] h-[40px] bg-primary rounded-md cursor-pointer grid place-items-center text-white absolute top-[50%] ease-in duration-300">
-          <AiFillCaretLeft />
-        </div>
-      </Swiper>
-
-      <div className=" mb-10 bg-primary h-[80px] mx-auto p-5 ">
-        <div className=" flex items-center justify-center gap-10">
-          <Link
-            href="https://www.facebook.com/profile.php?id=100088210389764"
-            target="_"
-            className=" border px-5 py-2 flex items-center gap-3 text-white hover:bg-white hover:text-primary transition rounded-md"
-          >
-            <div>
-              <FaFacebookF />
-            </div>
-            <div>
-              <p>Visit Facebook</p>
-            </div>
-          </Link>
-          <Link
-            href="https://github.com/Maruf200008"
-            target="_"
-            className=" border px-5 py-2 flex items-center gap-3 text-white hover:bg-white hover:text-primary transition rounded-md"
-          >
-            <div>
-              <AiFillGithub />
-            </div>
-            <div>
-              <p>Visit GitHub</p>
-            </div>
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/mohammad-maruf-a77b9621a"
-            target="_"
-            className=" border px-5 py-2 flex items-center gap-3 text-white hover:bg-white hover:text-primary transition rounded-md"
-          >
-            <div>
-              <AiFillLinkedin />
-            </div>
-            <div>
-              <p>Visit Linkdin</p>
-            </div>
-          </Link>
+          </div>
+          <Image src={banner} alt="banner" />
         </div>
       </div>
     </div>

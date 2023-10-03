@@ -34,7 +34,7 @@ export default function WatchMovies() {
     },
   ];
   return (
-    <div className=" bg-gradient-to-t from-[#F15109] to-[#FC1348] mt-20 h-[450px] mb-10">
+    <div className=" bg-gradient-to-t from-[#F15109] to-[#FC1348]  h-[450px] mb-10">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className=" w-full mt-20 flex items-center justify-center flex-col space-y-3">
           <div className=" text-[#f8ab88] text-[30px]">

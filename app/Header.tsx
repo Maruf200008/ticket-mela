@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import SearchBar from "./components/SearchBar";
 import avatar from "./images/avatar.png";
 import logo from "./images/logo.png";
 export default function Header() {
@@ -53,7 +52,6 @@ export default function Header() {
           </ul>
         </div>
         <div className=" flex items-center gap-5">
-          <SearchBar />
           <div>
             <Image
               src={avatar}
