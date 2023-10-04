@@ -30,7 +30,7 @@ export default function UpcomingEvents() {
     },
   ];
   return (
-    <div className=" relative  w-full ">
+    <div className=" relative  w-full  ">
       <Image src={patternBg} alt="patternBg" width={700} />
       <div>
         <div className=" absolute  w-full left-[10%]  top-[100px] max-w-screen-xl  mx-auto p-4 flex items-center justify-center flex-col">
@@ -44,10 +44,10 @@ export default function UpcomingEvents() {
                 Register Yourself now <br /> for the Events
               </h2>
             </div>
-            <div className=" grid grid-cols-3 gap-5 mt-7  w-full mb-20">
+            <div className=" grid grid-cols-3 gap-5 mt-7  w-full  ">
               {eventsData.map((data, index) => (
                 <div key={index} className=" relative">
-                  <div className=" to-transparent absolute bg-black/70  w-full h-full  group overflow-hidden     p-7 ">
+                  <div className="  to-transparent absolute bg-black/70  w-full h-full  group overflow-hidden     p-7 ">
                     <div className=" absolute -bottom-[170px] group-hover:bottom-[15px] ease-in-out duration-300 space-y-2 text-white">
                       <div className=" bg-secondary  p-2 text-[12px] w-[100px] ">
                         <p>{data?.date}</p>
@@ -81,8 +81,8 @@ export default function UpcomingEvents() {
                           </div>
                         </div>
                       </div>
-                      <div className=" flex items-end justify-end mr-7  ">
-                        <div className="bg-white text-secondary hover:text-white transition hover:bg-secondary cursor-pointer rounded-full p-1 text-[35px]">
+                      <div className="  flex items-end justify-end mr-7  ">
+                        <div className="bg-white  text-secondary hover:text-white transition hover:bg-secondary cursor-pointer rounded-full p-1 text-[35px]">
                           <BsArrowRightShort />
                         </div>
                       </div>

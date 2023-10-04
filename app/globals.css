@@ -20,9 +20,19 @@
 .list:hover:after {
   width: 100%;
 }
-.swiper-pagination {
-  margin-top: 30px;
+.footer-list {
+  position: relative;
 }
-.swiper-pagination-bullet-active {
-  background: #fc1348;
+.footer-list:after {
+  content: "";
+  position: absolute;
+  background-color: #f15109;
+  height: 1px;
+  width: 0%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+.footer-list:hover:after {
+  width: 100%;
 }
