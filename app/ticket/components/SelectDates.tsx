@@ -8,13 +8,14 @@ import poster1 from "../../images/poster/poster1.jpg";
 import poster2 from "../../images/poster/poster2.jpg";
 import poster3 from "../../images/poster/poster3.jpg";
 import tick from "../../images/tick.png";
+import SelectShowTime from "./SelectShowTime";
 
 export default function SelectDates() {
   const [toggle, setToggle] = useState(false);
   const [showCalander, setShowCalander] = useState(false);
   const [date, setDate] = useState();
   const [fullDate, setFullDate] = useState();
-  const [showTick, setShowTick] = useState(false);
+  const [showTick, setShowTick] = useState();
 
   const [location, setLocation] = useState(
     "Star Cineplex, SKS Tower, Mohakhali"
@@ -44,9 +45,27 @@ export default function SelectDates() {
     }
   }, [fullDate, date]);
 
-  const handleClik = () => {
-    setShowTick(!showTick);
+  const handleClik = (value) => {
+    setShowTick(value);
   };
+
+  const moviesPoster = [
+    {
+      id: 1,
+      title: "BellBottom",
+      img: poster1,
+    },
+    {
+      id: 2,
+      title: "Jailer",
+      img: poster2,
+    },
+    {
+      id: 3,
+      title: "Priotoma",
+      img: poster3,
+    },
+  ];
 
   return (
     <div>
@@ -188,37 +207,35 @@ export default function SelectDates() {
       <div className=" my-10">
         <h1 className=" text-xl font-semibold">Select Movie</h1>
         <div className=" w-[550px] grid grid-cols-3 gap-4 mt-5">
-          <div className=" relative overflow-hidden border-secondary border-2 ">
-            <Image
-              src={poster1}
-              alt="poster1"
-              className=" hover:scale-110  cursor-pointer transition duration-700 ease-in-out "
-            />
-          </div>
-          <div className=" relative overflow-hidden border-secondary border-2 ">
-            {showTick ? (
-              <div className=" absolute z-40 translate-y-20 translate-x-16 cursor-pointer bg-primary p-2 rounded-full">
-                <Image src={tick} alt="tick" width={35} />
-              </div>
-            ) : (
-              ""
-            )}
-            <Image
-              onClick={handleClik}
-              src={poster2}
-              alt="poster1"
-              className=" hover:scale-110  cursor-pointer transition duration-700 ease-in-out "
-            />
-          </div>
-          <div className=" relative overflow-hidden border-secondary border-2 ">
-            <Image
-              src={poster3}
-              alt="poster1"
-              className=" hover:scale-110  cursor-pointer transition duration-700 ease-in-out "
-            />
-          </div>
+          {moviesPoster.map((data) => (
+            <div
+              key={data.id}
+              className=" relative overflow-hidden border-secondary border-2 "
+            >
+              {showTick && showTick === data?.title ? (
+                <div className=" absolute z-40 translate-y-20 translate-x-16 cursor-pointer bg-primary p-2 rounded-full">
+                  <Image
+                    onClick={() => setShowTick("")}
+                    src={tick}
+                    alt="tick"
+                    width={35}
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+              <Image
+                onClick={() => handleClik(data?.title)}
+                src={data?.img}
+                alt="poster1"
+                className=" hover:scale-110  cursor-pointer transition duration-700 ease-in-out "
+              />
+            </div>
+          ))}
         </div>
       </div>
+
+      {showTick ? <SelectShowTime /> : ""}
     </div>
   );
 }
