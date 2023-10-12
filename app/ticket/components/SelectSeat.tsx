@@ -3,10 +3,20 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import { addSeatType } from "@/app/redux/ticket/ticketSlice";
+import { useDispatch } from "react-redux";
 import tick from "../../images/tick.png";
 import TicketQuantity from "./TicketQuantity";
 export default function SelectSeat() {
   const [seatType, setSeatType] = useState("");
+  const [price, setPrice] = useState();
+  const dispatch = useDispatch();
+  const seatHandlar = (value) => {
+    setSeatType(value?.type);
+    setPrice(value?.price);
+    dispatch(addSeatType(value?.type));
+  };
+
   return (
     <div className=" mt-7">
       <div>
@@ -23,7 +33,7 @@ export default function SelectSeat() {
                 </div>
               ) : (
                 <div
-                  onClick={() => setSeatType("Lounger")}
+                  onClick={() => seatHandlar({ type: "Lounger", price: 450 })}
                   className=" w-[25px] h-[25px] rounded-full border-2 cursor-pointer border-gray-300"
                 />
               )}
@@ -42,7 +52,7 @@ export default function SelectSeat() {
                 </div>
               ) : (
                 <div
-                  onClick={() => setSeatType("Regular")}
+                  onClick={() => seatHandlar({ type: "Regular", price: 450 })}
                   className=" w-[25px] h-[25px] rounded-full border-2 cursor-pointer border-gray-300"
                 />
               )}
@@ -61,7 +71,9 @@ export default function SelectSeat() {
                 </div>
               ) : (
                 <div
-                  onClick={() => setSeatType("Semi Recliner")}
+                  onClick={() =>
+                    seatHandlar({ type: "Semi Recliner", price: 550 })
+                  }
                   className=" w-[25px] h-[25px] rounded-full border-2 cursor-pointer border-gray-300"
                 />
               )}
@@ -72,7 +84,7 @@ export default function SelectSeat() {
             </div>
           </div>
         </div>
-        {seatType ? <TicketQuantity /> : ""}
+        {seatType ? <TicketQuantity price={price} /> : ""}
       </div>
     </div>
   );

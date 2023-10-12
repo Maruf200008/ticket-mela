@@ -1,10 +1,19 @@
 "use client";
 
+import { addHallName, addShowTime } from "@/app/redux/ticket/ticketSlice";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import SelectSeat from "./SelectSeat";
 
 export default function SelectShowTime() {
   const [selectDate, setSelectDate] = useState("");
+  const dispatch = useDispatch();
+
+  const handleSelectDate = (value) => {
+    setSelectDate(value?.time);
+    dispatch(addHallName(value?.hall));
+    dispatch(addShowTime(value?.time));
+  };
 
   return (
     <div>
@@ -17,7 +26,9 @@ export default function SelectShowTime() {
             </div>
             <div className=" flex items-center gap-3 ">
               <div
-                onClick={() => setSelectDate("11:50 AM")}
+                onClick={() =>
+                  handleSelectDate({ time: "11:50 AM", hall: "Hall 1" })
+                }
                 className={
                   selectDate === "11:50 AM"
                     ? ` border border-white  px-5 py-2  cursor-pointer bg-white text-secondary transition`
@@ -27,7 +38,9 @@ export default function SelectShowTime() {
                 11:50 AM
               </div>
               <div
-                onClick={() => setSelectDate("7:00 PM")}
+                onClick={() =>
+                  handleSelectDate({ time: "7:00 PM", hall: "Hall 1" })
+                }
                 className={
                   selectDate === "7:00 PM"
                     ? ` border border-white  px-5 py-2  cursor-pointer bg-white text-secondary transition`
@@ -44,7 +57,9 @@ export default function SelectShowTime() {
             </div>
             <div className=" flex items-center gap-3 ">
               <div
-                onClick={() => setSelectDate("11:30 AM")}
+                onClick={() =>
+                  handleSelectDate({ time: "11:30 AM", hall: "Hall 2" })
+                }
                 className={
                   selectDate === "11:30 AM"
                     ? ` border border-white  px-5 py-2  cursor-pointer bg-white text-secondary transition`
@@ -54,7 +69,9 @@ export default function SelectShowTime() {
                 11:30 AM
               </div>
               <div
-                onClick={() => setSelectDate("3:15 PM")}
+                onClick={() =>
+                  handleSelectDate({ time: "3:15 PM", hall: "Hall 2" })
+                }
                 className={
                   selectDate === "3:15 PM"
                     ? ` border border-white  px-5 py-2  cursor-pointer bg-white text-secondary transition`
@@ -64,7 +81,9 @@ export default function SelectShowTime() {
                 3:15 PM
               </div>
               <div
-                onClick={() => setSelectDate("7:45 PM")}
+                onClick={() =>
+                  handleSelectDate({ time: "7:45 PM", hall: "Hall 2" })
+                }
                 className={
                   selectDate === "7:45 PM"
                     ? ` border border-white  px-5 py-2  cursor-pointer bg-white text-secondary transition`

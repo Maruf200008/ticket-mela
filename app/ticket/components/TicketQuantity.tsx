@@ -1,9 +1,28 @@
 "use client";
+import {
+  decrementSumTotalAmount,
+  decrementTicketQuantity,
+  incrementSumTotalAmount,
+  incrementTicketQuantity,
+} from "@/app/redux/ticket/ticketSlice";
 import { useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 
-export default function TicketQuantity() {
+export default function TicketQuantity({ price }) {
+  console.log(price);
   const [count, setCout] = useState(0);
+  const dispatch = useDispatch();
+  const handleTicketIncrementCount = () => {
+    setCout((prev) => prev + 1);
+    dispatch(incrementTicketQuantity(count));
+    dispatch(incrementSumTotalAmount(price));
+  };
+  const handleTicketDecrementCount = () => {
+    setCout((prev) => prev - 1);
+    dispatch(decrementTicketQuantity(count));
+    dispatch(decrementSumTotalAmount(price));
+  };
   return (
     <div>
       <div className=" mt-10 w-[250px]">
@@ -13,7 +32,7 @@ export default function TicketQuantity() {
           <div className="flex gap-2 items-center justify-between px-5 py-3 border border-neutral-300 rounded-md  ">
             <button
               disabled={count <= 0}
-              onClick={() => setCout(count - 1)}
+              onClick={() => handleTicketDecrementCount()}
               className={
                 count != 0
                   ? ` bg-[#f33360] hover:bg-primary transition p-2 text-xl rounded-full text-white `
@@ -28,7 +47,7 @@ export default function TicketQuantity() {
             </div>
             <button
               disabled={count >= 10}
-              onClick={() => setCout(count + 1)}
+              onClick={() => handleTicketIncrementCount()}
               className={
                 count != 10
                   ? ` bg-[#f33360] hover:bg-primary transition p-2 text-xl rounded-full text-white `

@@ -1,15 +1,65 @@
+"use client";
 import Image from "next/image";
-import holl from "../../images/TicketDetails/hall.png";
-import location from "../../images/TicketDetails/location.png";
-import seat from "../../images/TicketDetails/seat.png";
-import showDate from "../../images/TicketDetails/showDate.png";
-import showTime from "../../images/TicketDetails/showTime.png";
-import ticket from "../../images/TicketDetails/ticket.png";
-import totalAmount from "../../images/TicketDetails/total.png";
+import { FiMinus } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import hollImg from "../../images/TicketDetails/hall.png";
+import locationImg from "../../images/TicketDetails/location.png";
+import seatImg from "../../images/TicketDetails/seat.png";
+import showDateImg from "../../images/TicketDetails/showDate.png";
+import showTimeImg from "../../images/TicketDetails/showTime.png";
+import ticketImg from "../../images/TicketDetails/ticket.png";
+import totalAmountImg from "../../images/TicketDetails/total.png";
 
 import Link from "next/link";
 import poster1 from "../../images/poster/poster1.jpg";
 export default function TicketsSummary() {
+  const {
+    location,
+    showDate,
+    hallName,
+    showTime,
+    seatType,
+    ticketQuantity,
+    totalAmount,
+  } = useSelector((state) => state.ticket);
+
+  const TicketInfo = [
+    {
+      icon: locationImg,
+      title: "Location",
+      des: location ? location : <FiMinus />,
+    },
+    {
+      icon: showDateImg,
+      title: "Show Date",
+      des: showDate ? showDate : <FiMinus />,
+    },
+    {
+      icon: hollImg,
+      title: "Hall Name",
+      des: hallName ? hallName : <FiMinus />,
+    },
+    {
+      icon: showTimeImg,
+      title: "Show Time",
+      des: showTime ? showTime : <FiMinus />,
+    },
+    {
+      icon: seatImg,
+      title: "Seat Type",
+      des: seatType ? seatType : <FiMinus />,
+    },
+    {
+      icon: ticketImg,
+      title: "Ticket Quantity",
+      des: ticketQuantity ? ticketQuantity : <FiMinus />,
+    },
+    {
+      icon: totalAmountImg,
+      title: "Total Amount",
+      des: totalAmount ? totalAmount : <FiMinus />,
+    },
+  ];
   return (
     <div>
       <h2 className=" mb-5 text-xl font-semibold text-primary">
@@ -33,55 +83,18 @@ export default function TicketsSummary() {
           </div>
         </div>
         <div className=" space-y-5">
-          <div className=" mt-5 flex items-center justify-between">
-            <div className=" flex items-center gap-3">
-              <Image src={location} alt="location" width={20} />
-              <p className=" text-neutral-400">Location</p>
+          {TicketInfo.map((data, index) => (
+            <div
+              key={index}
+              className=" mt-5 flex items-center justify-between"
+            >
+              <div className=" flex items-center gap-3">
+                <Image src={data?.icon} alt="location" width={20} />
+                <p className=" text-neutral-400">{data?.title}</p>
+              </div>
+              <div className=" text-primary font-semibold">{data?.des}</div>
             </div>
-            <div className=" text-primary font-semibold">SKS</div>
-          </div>
-          <div className=" mt-5 flex items-center justify-between">
-            <div className=" flex items-center gap-3">
-              <Image src={showDate} alt="location" width={20} />
-              <p className=" text-neutral-400">Show Date</p>
-            </div>
-            <div className=" text-primary font-semibold">08/10/2023</div>
-          </div>
-          <div className=" mt-5 flex items-center justify-between">
-            <div className=" flex items-center gap-3">
-              <Image src={holl} alt="location" width={20} />
-              <p className=" text-neutral-400">Hall Name </p>
-            </div>
-            <div className=" text-primary font-semibold">Hall 2</div>
-          </div>
-          <div className=" mt-5 flex items-center justify-between">
-            <div className=" flex items-center gap-3">
-              <Image src={showTime} alt="location" width={20} />
-              <p className=" text-neutral-400">Show Time </p>
-            </div>
-            <div className=" text-primary font-semibold">11:30 AM</div>
-          </div>
-          <div className=" mt-5 flex items-center justify-between">
-            <div className=" flex items-center gap-3">
-              <Image src={seat} alt="location" width={20} />
-              <p className=" text-neutral-400">Seat Type </p>
-            </div>
-            <div className=" text-primary font-semibold">Regular</div>
-          </div>
-          <div className=" mt-5 flex items-center justify-between">
-            <div className=" flex items-center gap-3">
-              <Image src={ticket} alt="location" width={20} />
-              <p className=" text-neutral-400">Ticket Quantity </p>
-            </div>
-            <div className=" text-primary font-semibold">1</div>
-          </div>
-          <div className=" mt-5 flex items-center justify-between">
-            <div className=" flex items-center gap-3">
-              <Image src={totalAmount} alt="totalAmount" width={20} />
-              <p className=" text-neutral-400">Total Amount </p>
-            </div>
-            <div className=" text-primary font-semibold">450 BDT</div>
-          </div>
+          ))}
         </div>
         <div className=" mt-10 ">
           <h2 className=" text-xl font-semibold text-primary">Ticket For</h2>

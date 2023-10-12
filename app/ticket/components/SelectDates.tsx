@@ -1,9 +1,11 @@
 "use client";
+import { addLocation, addShowDate } from "@/app/redux/ticket/ticketSlice";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
 import poster1 from "../../images/poster/poster1.jpg";
 import poster2 from "../../images/poster/poster2.jpg";
 import poster3 from "../../images/poster/poster3.jpg";
@@ -16,6 +18,7 @@ export default function SelectDates() {
   const [date, setDate] = useState();
   const [fullDate, setFullDate] = useState();
   const [showTick, setShowTick] = useState();
+  const dispatch = useDispatch();
 
   const [location, setLocation] = useState(
     "Star Cineplex, SKS Tower, Mohakhali"
@@ -23,8 +26,10 @@ export default function SelectDates() {
 
   //   set location
   const handleLocation = (value) => {
-    setLocation(value);
+    setLocation(value?.fullLocation);
     setToggle(false);
+    console.log(value);
+    dispatch(addLocation(value?.shortLocation));
   };
 
   //   handle date
@@ -41,9 +46,10 @@ export default function SelectDates() {
       const fullDate = day + "/" + month + "/" + year;
 
       setFullDate(fullDate);
+      dispatch(addShowDate(fullDate));
       console.log(fullDate);
     }
-  }, [fullDate, date]);
+  }, [fullDate, date, fullDate, dispatch]);
 
   const handleClik = (value) => {
     setShowTick(value);
@@ -99,7 +105,10 @@ export default function SelectDates() {
               <ul className=" space-y-3">
                 <li
                   onClick={() =>
-                    handleLocation("Bashundhara Shopping Mall, Panthapath")
+                    handleLocation({
+                      fullLocation: "Bashundhara Shopping Mall, Panthapath",
+                      shortLocation: "BSC",
+                    })
                   }
                   className=" hover:text-neutral-700 transition text-neutral-400 cursor-pointer flex items-center gap-3"
                 >
@@ -110,7 +119,10 @@ export default function SelectDates() {
                 </li>
                 <li
                   onClick={() =>
-                    handleLocation("Shimanto Shambhar, Dhanmondi 2")
+                    handleLocation({
+                      fullLocation: "Shimanto Shambhar, Dhanmondi 2",
+                      shortLocation: "SMC",
+                    })
                   }
                   className=" hover:text-neutral-700 transition text-neutral-400 cursor-pointer flex items-center gap-3"
                 >
@@ -121,7 +133,10 @@ export default function SelectDates() {
                 </li>
                 <li
                   onClick={() =>
-                    handleLocation("Star Cineplex, SKS Tower, Mohakhali")
+                    handleLocation({
+                      fullLocation: "Star Cineplex, SKS Tower, Mohakhali",
+                      shortLocation: "SKS",
+                    })
                   }
                   className=" hover:text-neutral-700 transition text-neutral-400 cursor-pointer flex items-center gap-3"
                 >
@@ -131,7 +146,12 @@ export default function SelectDates() {
                   <p>Star Cineplex, SKS Tower, Mohakhali</p>
                 </li>
                 <li
-                  onClick={() => handleLocation("Sony Square Start CINEPLEX")}
+                  onClick={() =>
+                    handleLocation({
+                      fullLocation: "Sony Square Start CINEPLEX",
+                      shortLocation: "Sony",
+                    })
+                  }
                   className=" hover:text-neutral-700 transition text-neutral-400 cursor-pointer flex items-center gap-3"
                 >
                   <div className=" ">
@@ -141,9 +161,11 @@ export default function SelectDates() {
                 </li>
                 <li
                   onClick={() =>
-                    handleLocation(
-                      "Start Cineplex, Bangabandhu Military Museum"
-                    )
+                    handleLocation({
+                      fullLocation:
+                        "Start Cineplex, Bangabandhu Military Museum",
+                      shortLocation: "BMM",
+                    })
                   }
                   className=" hover:text-neutral-700 transition text-neutral-400 cursor-pointer flex items-center gap-3"
                 >
@@ -154,7 +176,10 @@ export default function SelectDates() {
                 </li>
                 <li
                   onClick={() =>
-                    handleLocation("Start Cineplex, Bali, Arcade, Chattogram")
+                    handleLocation({
+                      fullLocation: "Start Cineplex, Bali, Arcade, Chattogram",
+                      shortLocation: "BLI",
+                    })
                   }
                   className=" hover:text-neutral-700 transition text-neutral-400 cursor-pointer flex items-center gap-3"
                 >
@@ -165,7 +190,10 @@ export default function SelectDates() {
                 </li>
                 <li
                   onClick={() =>
-                    handleLocation("Start Cineplex, Hi-Tech Park, Rajshahi")
+                    handleLocation({
+                      fullLocation: "Start Cineplex, Hi-Tech Park, Rajshahi",
+                      shortLocation: "RHP",
+                    })
                   }
                   className=" hover:text-neutral-700 transition text-neutral-400 cursor-pointer flex items-center gap-3"
                 >
@@ -195,7 +223,7 @@ export default function SelectDates() {
             </h2>
           </div>
           {showCalander ? (
-            <div className=" z-30 absolute w-[350px] bg-white mt-10 p-6 space-x-3 shadow-xl shadow-neutral-300">
+            <div className=" z-50 absolute w-[350px] bg-white mt-10 p-6 space-x-3 shadow-xl shadow-neutral-300">
               <Calendar onChange={handleClander} value={date} />
             </div>
           ) : (
