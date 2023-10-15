@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import avatar from "./images/avatar.png";
-import logo from "./images/logo.png";
+import logo from "./images/footerLogo.png";
 export default function Header() {
   const navDate = [
     {
@@ -15,7 +15,7 @@ export default function Header() {
     },
     {
       title: "About Us",
-      link: "/aboutUs",
+      link: "/about",
     },
     {
       title: "Ticket Price",
@@ -27,7 +27,7 @@ export default function Header() {
     },
   ];
   return (
-    <div className=" bg-white shadow-xl shadow-gray-200/30">
+    <div className=" bg-black shadow-xl shadow-gray-200/30">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/">
           <Image
@@ -42,7 +42,7 @@ export default function Header() {
             {navDate.map((data, index) => (
               <li
                 key={index}
-                className=" text-slate-400 hover:text-slate-600 transition"
+                className=" text-slate-300 hover:text-slate-100 transition"
               >
                 <Link className="list" href={data?.link}>
                   {data?.title}
