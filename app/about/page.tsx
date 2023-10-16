@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Feedbacks from "../components/Feedbacks";
 import bgImg from "../images/about/bgImg.png";
 import FilmCrew from "./components/FilmCrew";
 import GetToKnow from "./components/GetToKnow";
+import Students from "./components/Students";
 import WatchLive from "./components/WatchLive";
 
 export default function page() {
@@ -18,6 +20,8 @@ export default function page() {
         </div>
         <WatchLive />
         <FilmCrew />
+        <Feedbacks />
+        <Students />
       </div>
     </div>
   );

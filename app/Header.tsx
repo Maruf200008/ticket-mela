@@ -23,7 +23,7 @@ export default function Header() {
     },
     {
       title: "Contacts",
-      link: "/contacts",
+      link: "/contact",
     },
   ];
   return (

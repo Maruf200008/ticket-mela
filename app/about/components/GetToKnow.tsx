@@ -18,7 +18,7 @@ export default function GetToKnow() {
           <h1 className=" text-[55px] leading-[55px] font-semibold">
             Proving the Best Film Services
           </h1>
-          <div className=" pt-14 leading-7 text-[18px] text-gray-400">
+          <div className=" pt-10 leading-7 text-[18px] text-gray-400">
             <p>
               Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod
               tempor incididunt labore dolore magna aliquaenim ad minim. Sed

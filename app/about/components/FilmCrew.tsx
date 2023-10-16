@@ -2,6 +2,8 @@ import Image from "next/image";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import { PiFilmReelFill } from "react-icons/pi";
 import image1 from "../../images/about/image-1-our-team.jpg";
+import image2 from "../../images/about/image-2-our-team.jpg";
+import image3 from "../../images/about/image-3-our-team.jpg";
 
 export default function FilmCrew() {
   return (
@@ -24,7 +26,7 @@ export default function FilmCrew() {
               />
             </div>
             <div className=" w-[10px] h-[200px] bg-secondary group-hover:h-[250px] ease-in duration-300  absolute right-[0px] -bottom-6"></div>
-            <div className=" w-[240px] h-[10px] bg-secondary group-hover:w-[270px] ease-in duration-300  absolute right-[0px] -bottom-8"></div>
+            <div className=" w-[240px] h-[10px] bg-secondary group-hover:w-[270px] ease-in duration-300  absolute right-[0px] -bottom-6"></div>
           </div>
           <div className=" mt-10 flex items-center justify-between ">
             <div>
@@ -49,18 +51,18 @@ export default function FilmCrew() {
             <div className=" h-[500px] w-[360px] overflow-hidden relative">
               <div className=" w-full h-full bg-black/0 group-hover:bg-black/50 ease-in duration-300 absolute z-40" />
               <Image
-                src={image1}
+                src={image2}
                 height={600}
                 alt="image1"
                 className=" relative"
               />
             </div>
             <div className=" w-[10px] h-[200px] bg-secondary group-hover:h-[250px] ease-in duration-300  absolute right-[0px] -bottom-6"></div>
-            <div className=" w-[240px] h-[10px] bg-secondary group-hover:w-[270px] ease-in duration-300  absolute right-[0px] -bottom-8"></div>
+            <div className=" w-[240px] h-[10px] bg-secondary group-hover:w-[270px] ease-in duration-300  absolute right-[0px] -bottom-6"></div>
           </div>
           <div className=" mt-10 flex items-center justify-between ">
             <div>
-              <h2 className=" text-2xl font-semibold">Kevin Martin</h2>
+              <h2 className=" text-2xl font-semibold">Jessica Brown</h2>
               <p className=" text-sm text-neutral-400">Film Director</p>
             </div>
             <div className=" flex items-center gap-3">
@@ -81,18 +83,18 @@ export default function FilmCrew() {
             <div className=" h-[500px] w-[360px] overflow-hidden relative">
               <div className=" w-full h-full bg-black/0 group-hover:bg-black/50 ease-in duration-300 absolute z-40" />
               <Image
-                src={image1}
+                src={image3}
                 height={600}
                 alt="image1"
                 className=" relative"
               />
             </div>
             <div className=" w-[10px] h-[200px] bg-secondary group-hover:h-[250px] ease-in duration-300  absolute right-[0px] -bottom-6"></div>
-            <div className=" w-[240px] h-[10px] bg-secondary group-hover:w-[270px] ease-in duration-300  absolute right-[0px] -bottom-8"></div>
+            <div className=" w-[240px] h-[10px] bg-secondary group-hover:w-[270px] ease-in duration-300  absolute right-[0px] -bottom-6"></div>
           </div>
           <div className=" mt-10 flex items-center justify-between ">
             <div>
-              <h2 className=" text-2xl font-semibold">Kevin Martin</h2>
+              <h2 className=" text-2xl font-semibold">Mike Hardson</h2>
               <p className=" text-sm text-neutral-400">Film Director</p>
             </div>
             <div className=" flex items-center gap-3">
