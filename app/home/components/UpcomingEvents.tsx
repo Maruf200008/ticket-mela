@@ -3,10 +3,10 @@ import { BiSolidTimeFive } from "react-icons/bi";
 import { BsArrowRightShort } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { PiFilmReelFill } from "react-icons/pi";
-import patternBg from "../images/patternBg.jpg";
-import img1 from "../images/upCommingEvent/img1.jpg";
-import img2 from "../images/upCommingEvent/img2.jpg";
-import img3 from "../images/upCommingEvent/img3.jpg";
+import patternBg from "../../images/patternBg.jpg";
+import img1 from "../../images/upCommingEvent/img1.jpg";
+import img2 from "../../images/upCommingEvent/img2.jpg";
+import img3 from "../../images/upCommingEvent/img3.jpg";
 
 export default function UpcomingEvents() {
   const eventsData = [

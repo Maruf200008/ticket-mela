@@ -11,7 +11,7 @@ export default function Header() {
     },
     {
       title: "Show Times",
-      link: "/showTimes",
+      link: "/show-time",
     },
     {
       title: "About Us",
@@ -19,7 +19,7 @@ export default function Header() {
     },
     {
       title: "Ticket Price",
-      link: "/ticketPrice",
+      link: "/ticket-price",
     },
     {
       title: "Contacts",

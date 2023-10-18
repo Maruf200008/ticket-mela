@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { PiFilmReelFill } from "react-icons/pi";
-import poster1 from "../images/poster/poster1.jpg";
-import poster2 from "../images/poster/poster2.jpg";
-import poster3 from "../images/poster/poster3.jpg";
-import poster4 from "../images/poster/poster4.jpg";
-import poster5 from "../images/poster/poster5.jpg";
+import poster1 from "../../images/poster/poster1.jpg";
+import poster2 from "../../images/poster/poster2.jpg";
+import poster3 from "../../images/poster/poster3.jpg";
+import poster4 from "../../images/poster/poster4.jpg";
+import poster5 from "../../images/poster/poster5.jpg";
 export default function WatchMovies() {
   const posterDetails = [
     {

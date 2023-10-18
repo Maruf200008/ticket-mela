@@ -2,17 +2,17 @@
 
 import { AiFillStar } from "react-icons/ai";
 import { Swiper, SwiperSlide } from "swiper/react";
-import man1 from "../images/feedback/man1.jpg";
-import man2 from "../images/feedback/man2.jpg";
-import man3 from "../images/feedback/man3.jpg";
-import man4 from "../images/feedback/man4.jpg";
-import man5 from "../images/feedback/man5.jpg";
-import man6 from "../images/feedback/man6.jpg";
+import man1 from "../../images/feedback/man1.jpg";
+import man2 from "../../images/feedback/man2.jpg";
+import man3 from "../../images/feedback/man3.jpg";
+import man4 from "../../images/feedback/man4.jpg";
+import man5 from "../../images/feedback/man5.jpg";
+import man6 from "../../images/feedback/man6.jpg";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import message from "../images/message.png";
+import message from "../../images/message.png";
 // import required modules
 import Image from "next/image";
 import { Autoplay, Navigation } from "swiper/modules";

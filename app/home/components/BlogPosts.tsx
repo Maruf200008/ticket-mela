@@ -2,10 +2,10 @@ import Image from "next/image";
 import { FaComments } from "react-icons/fa";
 import { GrBottomCorner } from "react-icons/gr";
 import { PiFilmReelFill } from "react-icons/pi";
-import avatar from "../images/avatar.png";
-import blogIm1 from "../images/blogImg/blog-1.jpg";
-import blogIm2 from "../images/blogImg/blog-2.jpg";
-import blogIm3 from "../images/blogImg/blog-3.jpg";
+import avatar from "../../images/avatar.png";
+import blogIm1 from "../../images/blogImg/blog-1.jpg";
+import blogIm2 from "../../images/blogImg/blog-2.jpg";
+import blogIm3 from "../../images/blogImg/blog-3.jpg";
 export default function BlogPosts() {
   const blogData = [
     {

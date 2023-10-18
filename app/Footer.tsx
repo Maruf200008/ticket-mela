@@ -11,18 +11,24 @@ export default function Footer() {
         <div className="max-w-screen-xl  mx-auto  flex items-center flex-col  text-white py-10">
           <div className=" w-full">
             <div className=" flex items-center justify-between border-b pb-7 border-gray-600">
-              <div>
+              <Link href="/">
                 <Image src={logo} alt="logo" width={180} />
-              </div>
+              </Link>
               <div className=" flex items-center gap-6">
                 <div className=" flex items-center gap-2  font-light text-gray-500">
-                  <p className="cursor-pointer hover:text-secondary transition">
+                  <Link
+                    href="about"
+                    className="cursor-pointer hover:text-secondary transition"
+                  >
                     Help{" "}
-                  </p>
+                  </Link>
                   <p> / </p>
-                  <p className="cursor-pointer hover:text-secondary transition">
+                  <Link
+                    href="privacy-policy"
+                    className="cursor-pointer hover:text-secondary transition"
+                  >
                     Privacy Policy
-                  </p>
+                  </Link>
                 </div>
                 <div className=" flex items-center gap-3">
                   <Link

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { PiFilmReelFill } from "react-icons/pi";
 
-import feedback from "../images/feedbackImg.png";
+import feedback from "../../images/feedbackImg.png";
 import FeedbackSlider from "./FeedbackSlider";
 
 export default function Feedbacks() {

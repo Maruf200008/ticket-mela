@@ -2,14 +2,14 @@
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BiSolidTimeFive } from "react-icons/bi";
 import { Swiper, SwiperSlide } from "swiper/react";
-import filmBc from "../images/filmBackground.png";
-import tag from "../images/tag.png";
-import poster1 from "../images/topMovies/poster1.jpg";
-import poster2 from "../images/topMovies/poster2.jpg";
-import poster3 from "../images/topMovies/poster3.jpg";
-import poster4 from "../images/topMovies/poster4.jpg";
-import poster5 from "../images/topMovies/poster5.jpg";
-import poster6 from "../images/topMovies/poster6.jpg";
+import filmBc from "../../images/filmBackground.png";
+import tag from "../../images/tag.png";
+import poster1 from "../../images/topMovies/poster1.jpg";
+import poster2 from "../../images/topMovies/poster2.jpg";
+import poster3 from "../../images/topMovies/poster3.jpg";
+import poster4 from "../../images/topMovies/poster4.jpg";
+import poster5 from "../../images/topMovies/poster5.jpg";
+import poster6 from "../../images/topMovies/poster6.jpg";
 
 // Import Swiper styles
 import "swiper/css";

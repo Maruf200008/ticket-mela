@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import Image from "next/image";
-import banner from "../images/heroBanner.jpg";
+import banner from "../../images/heroBanner.jpg";
 
 export default function Hero() {
   return (
