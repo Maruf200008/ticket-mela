@@ -1,10 +1,64 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import facebook from "../images/facebook.png";
 import google from "../images/google.png";
 import bg from "../images/login/sideBg2.jpg";
+import { useRegisterMutation } from "../redux/auth/authApi";
 
 export default function SignUp() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [password, setPassword] = useState("");
+  const [nameErr, setNameErr] = useState("");
+  const [emailErr, setemailErr] = useState("");
+  const [mobileErr, setmobileErr] = useState("");
+  const [passwordErr, setpasswordErr] = useState("");
+
+  const [
+    register,
+    { data: user, isLoading, isError, isSuccess, error: responseError },
+  ] = useRegisterMutation();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    register({
+      name,
+      email,
+      mobile,
+      password,
+    });
+  };
+
+  // what to render
+  let content;
+
+  if (isLoading && !isError) {
+    <div>Loading...</div>;
+  } else if (!isLoading && isError) {
+    console.log(responseError);
+    const { error } = responseError?.data || {};
+    console.log(error);
+    if (error && error?.name?.msg) {
+      setNameErr(error?.name?.msg);
+    } else if (error && error?.email?.msg) {
+      setemailErr(error?.email?.msg);
+    } else if (error && error?.mobile?.msg) {
+      setmobileErr(error?.mobile?.msg);
+    } else if (error && error?.password?.msg) {
+      setpasswordErr(error?.password?.msg);
+    }
+  } else if (!isLoading && !isError && isSuccess) {
+    console.log("You can Redirect Now..");
+  }
+
+  console.log(nameErr);
+  console.log(emailErr);
+  console.log(mobileErr);
+  console.log(passwordErr);
+
   return (
     <div className="max-w-screen-xl flex flex-wrap flex-col items-center mx-auto my-20">
       <div className=" grid grid-cols-2 gap-10 w-full">
@@ -13,38 +67,62 @@ export default function SignUp() {
             Create account
           </h1>
           <div className=" ">
-            <form className=" space-y-4 text-neutral-500 mt-20 flex items-center justify-center flex-col gap-4">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4 text-neutral-500 mt-20 flex items-center justify-center flex-col gap-4"
+            >
               <div>
                 <input
                   required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder="Name"
                   type="text"
                   className="w-[400px] focus:outline-none px-5 py-5 rounded-full border-primary border"
                 />
+                <p className=" text-[12px] ml-5 text-primary">
+                  Name must not contain anything other than alphabet
+                </p>
               </div>
               <div>
                 <input
                   required
                   placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   type="text"
                   className="w-[400px] focus:outline-none px-5 py-5 rounded-full border-primary border"
                 />
+
+                <p className=" text-[12px] ml-5  text-primary">
+                  Name must not contain anything other than alphabet
+                </p>
               </div>
               <div>
                 <input
                   required
                   placeholder="Phone"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
                   type="text"
                   className="w-[400px] focus:outline-none px-5 py-5 rounded-full border-primary border"
                 />
+                <p className=" text-[12px] ml-5 text-primary">
+                  Name must not contain anything other than alphabet
+                </p>
               </div>
               <div>
                 <input
                   placeholder="Password"
                   required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   className="w-[400px] text-neutral-500 focus:outline-none px-5 py-5 rounded-full border-primary border"
                 />
+                <p className=" text-[12px] ml-5 text-primary">
+                  Name must not contain anything other than alphabet
+                </p>
               </div>
               <div>
                 <button
