@@ -1,10 +1,51 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
 import facebook from "./images/facebook.png";
 import google from "./images/google.png";
 import bg from "./images/login/sideBg.jpg";
+import { useLoginMutation } from "./redux/auth/authApi";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email);
+    console.log(password);
+    login({
+      email,
+      password,
+    });
+  };
+
+  const [login, { isError, isLoading, isSuccess, error: responseError }] =
+    useLoginMutation();
+  let content;
+  if (isLoading && !isError) {
+    content = <div>Loading</div>;
+  } else if (!isLoading && isError) {
+    content = <div>Somthing is error</div>;
+    console.log(error);
+  } else if (!isLoading && !isError && isSuccess) {
+    redirect("/home");
+  }
+
+  useEffect(() => {
+    if (responseError) {
+      const { error: err } = responseError?.data || {};
+      setError(err.common?.msg);
+    } else if (isSuccess) {
+      setError("");
+    }
+  }, [responseError, isSuccess]);
+  console.log(error);
+
   return (
     <div className="max-w-screen-xl flex flex-wrap flex-col items-center mx-auto my-20">
       <div className=" grid grid-cols-2 gap-10 w-full">
@@ -13,11 +54,16 @@ export default function Home() {
             Welcome Back
           </h1>
           <div className=" ">
-            <form className=" space-y-4 text-neutral-500 mt-20 flex items-center justify-center flex-col gap-4">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4 text-neutral-500 mt-20 flex items-center justify-center flex-col gap-4"
+            >
               <div>
                 <input
                   required
-                  placeholder="Email or phone"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   type="text"
                   className="w-[400px] focus:outline-none px-5 py-5 rounded-full border-primary border"
                 />
@@ -26,6 +72,8 @@ export default function Home() {
                 <input
                   placeholder="Password"
                   required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   className="w-[400px] text-neutral-500 focus:outline-none px-5 py-5 rounded-full border-primary border"
                 />
@@ -37,16 +85,11 @@ export default function Home() {
                 >
                   Log in
                 </button>
-                <p className=" mt-3">
-                  Don't have an account?{" "}
-                  <Link href="signup" className=" text-primary">
-                    Sign up
-                  </Link>
-                </p>
+                {error && <p className=" ml-5 text-primary">{error}</p>}
               </div>
             </form>
 
-            <div className=" mt-10">
+            <div className=" mt-10 text-center">
               <div className=" flex items-center gap-5 justify-center">
                 <div className=" bg-neutral-100 p-3 cursor-pointer rounded-full">
                   <Image src={google} alt="google" width={30} />
@@ -55,6 +98,12 @@ export default function Home() {
                   <Image src={facebook} alt="google" width={30} />
                 </div>
               </div>
+              <p className=" mt-3">
+                Don't have an account?{" "}
+                <Link href="signup" className=" text-primary">
+                  Sign up
+                </Link>
+              </p>
             </div>
           </div>
         </div>

@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { redirect } from "next/navigation";
+
+import { useEffect, useState } from "react";
 import facebook from "../images/facebook.png";
 import google from "../images/google.png";
 import bg from "../images/login/sideBg2.jpg";
@@ -13,14 +15,11 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
-  const [nameErr, setNameErr] = useState("");
-  const [emailErr, setemailErr] = useState("");
-  const [mobileErr, setmobileErr] = useState("");
-  const [passwordErr, setpasswordErr] = useState("");
+  const [error, setError] = useState();
 
   const [
     register,
-    { data: user, isLoading, isError, isSuccess, error: responseError },
+    { data, isLoading, isError, isSuccess, error: responseError },
   ] = useRegisterMutation();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,26 +37,16 @@ export default function SignUp() {
   if (isLoading && !isError) {
     <div>Loading...</div>;
   } else if (!isLoading && isError) {
-    console.log(responseError);
-    const { error } = responseError?.data || {};
-    console.log(error);
-    if (error && error?.name?.msg) {
-      setNameErr(error?.name?.msg);
-    } else if (error && error?.email?.msg) {
-      setemailErr(error?.email?.msg);
-    } else if (error && error?.mobile?.msg) {
-      setmobileErr(error?.mobile?.msg);
-    } else if (error && error?.password?.msg) {
-      setpasswordErr(error?.password?.msg);
-    }
   } else if (!isLoading && !isError && isSuccess) {
-    console.log("You can Redirect Now..");
+    redirect("/home");
   }
 
-  console.log(nameErr);
-  console.log(emailErr);
-  console.log(mobileErr);
-  console.log(passwordErr);
+  useEffect(() => {
+    if (responseError) {
+      const { error: err } = responseError?.data || {};
+      setError(err);
+    }
+  }, [responseError]);
 
   return (
     <div className="max-w-screen-xl flex flex-wrap flex-col items-center mx-auto my-20">
@@ -78,11 +67,19 @@ export default function SignUp() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Name"
                   type="text"
-                  className="w-[400px] focus:outline-none px-5 py-5 rounded-full border-primary border"
+                  className={`w-[400px] text-neutral-500 focus:outline-none px-5 py-5 rounded-full ${
+                    error && error?.name?.msg
+                      ? "border-primary"
+                      : " border-neutral-400"
+                  } border`}
                 />
-                <p className=" text-[12px] ml-5 text-primary">
-                  Name must not contain anything other than alphabet
-                </p>
+                {error && error.name ? (
+                  <p className=" text-[12px] ml-5 text-primary">
+                    {error?.name?.msg}
+                  </p>
+                ) : (
+                  ""
+                )}
               </div>
               <div>
                 <input
@@ -91,12 +88,20 @@ export default function SignUp() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   type="text"
-                  className="w-[400px] focus:outline-none px-5 py-5 rounded-full border-primary border"
+                  className={`w-[400px] text-neutral-500 focus:outline-none px-5 py-5 rounded-full ${
+                    error && error?.email?.msg
+                      ? "border-primary"
+                      : " border-neutral-400"
+                  } border`}
                 />
 
-                <p className=" text-[12px] ml-5  text-primary">
-                  Name must not contain anything other than alphabet
-                </p>
+                {error && error.email ? (
+                  <p className=" text-[12px] ml-5 text-primary">
+                    {error?.email?.msg}
+                  </p>
+                ) : (
+                  ""
+                )}
               </div>
               <div>
                 <input
@@ -105,11 +110,19 @@ export default function SignUp() {
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
                   type="text"
-                  className="w-[400px] focus:outline-none px-5 py-5 rounded-full border-primary border"
+                  className={`w-[400px] text-neutral-500 focus:outline-none px-5 py-5 rounded-full ${
+                    error && error?.mobile?.msg
+                      ? "border-primary"
+                      : " border-neutral-400"
+                  } border`}
                 />
-                <p className=" text-[12px] ml-5 text-primary">
-                  Name must not contain anything other than alphabet
-                </p>
+                {error && error.mobile ? (
+                  <p className=" text-[12px] ml-5 text-primary">
+                    {error?.mobile?.msg}
+                  </p>
+                ) : (
+                  ""
+                )}
               </div>
               <div>
                 <input
@@ -118,11 +131,19 @@ export default function SignUp() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   type="password"
-                  className="w-[400px] text-neutral-500 focus:outline-none px-5 py-5 rounded-full border-primary border"
+                  className={`w-[400px] text-neutral-500 focus:outline-none px-5 py-5 rounded-full ${
+                    error && error?.password?.msg
+                      ? "border-primary"
+                      : " border-neutral-400"
+                  } border`}
                 />
-                <p className=" text-[12px] ml-5 text-primary">
-                  Name must not contain anything other than alphabet
-                </p>
+                {error && error.password ? (
+                  <p className=" text-[12px] ml-5 text-primary w-[350px]">
+                    {error?.password?.msg}
+                  </p>
+                ) : (
+                  ""
+                )}
               </div>
               <div>
                 <button

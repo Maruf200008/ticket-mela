@@ -1,13 +1,29 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
 import avatar from "./images/avatar.png";
 import logo from "./images/footerLogo.png";
+import { useLogOutMutation } from "./redux/auth/authApi";
 export default function Header() {
+  const [logOut, { isLoading, isError, isSuccess, error: responseError }] =
+    useLogOutMutation();
+
+  let content;
+
+  if (isLoading) {
+    content = <div>Loading...</div>;
+  } else if (!isLoading && isError) {
+    console.log(responseError);
+    content = <div>Error</div>;
+  } else if (!isLoading && !isError && isSuccess) {
+    console.log("Thanks");
+  }
+
   const navDate = [
     {
       title: "Home",
-      link: "/",
+      link: "/home",
     },
     {
       title: "Show Times",
@@ -26,6 +42,10 @@ export default function Header() {
       link: "/contact",
     },
   ];
+  const handleLogOut = () => {
+    console.log("HI");
+    logOut();
+  };
   return (
     <div className=" bg-black shadow-xl shadow-gray-200/30">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -52,7 +72,7 @@ export default function Header() {
           </ul>
         </div>
         <div className=" flex items-center gap-5">
-          <div>
+          <div onClick={handleLogOut}>
             <Image
               src={avatar}
               alt="avatar"
