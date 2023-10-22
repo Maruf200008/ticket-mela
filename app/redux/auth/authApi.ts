@@ -22,8 +22,22 @@ const authApi = apiSlice.injectEndpoints({
         method: "DELETE",
       }),
     }),
+
+    home: builder.query({
+      query: () => ({
+        url: `/home`,
+
+        validateStatus: (response, result) => {
+          console.log(`Bangladesh ${response}`);
+        },
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation, useLogOutMutation } =
-  authApi;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useLogOutMutation,
+  useHomeQuery,
+} = authApi;

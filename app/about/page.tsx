@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Feedbacks from "../components/Feedbacks";
+import Feedbacks from "../home/components/Feedbacks";
 import bgImg from "../images/about/bgImg.png";
 import FilmCrew from "./components/FilmCrew";
 import GetToKnow from "./components/GetToKnow";
