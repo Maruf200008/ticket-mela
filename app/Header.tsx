@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import avatar from "./images/avatar.png";
 import logo from "./images/footerLogo.png";
@@ -14,10 +15,9 @@ export default function Header() {
   if (isLoading) {
     content = <div>Loading...</div>;
   } else if (!isLoading && isError) {
-    console.log(responseError);
     content = <div>Error</div>;
   } else if (!isLoading && !isError && isSuccess) {
-    console.log("Thanks");
+    redirect("/");
   }
 
   const navDate = [
@@ -43,7 +43,6 @@ export default function Header() {
     },
   ];
   const handleLogOut = () => {
-    console.log("HI");
     logOut();
   };
   return (

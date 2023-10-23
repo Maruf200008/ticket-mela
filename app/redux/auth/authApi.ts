@@ -24,13 +24,11 @@ const authApi = apiSlice.injectEndpoints({
     }),
 
     home: builder.query({
-      query: () => ({
-        url: `/home`,
+      query: () => "/home",
+    }),
 
-        validateStatus: (response, result) => {
-          console.log(`Bangladesh ${response}`);
-        },
-      }),
+    googleAuth: builder.query({
+      query: () => "auth/google",
     }),
   }),
 });
@@ -40,4 +38,5 @@ export const {
   useRegisterMutation,
   useLogOutMutation,
   useHomeQuery,
+  useGoogleAuthQuery,
 } = authApi;

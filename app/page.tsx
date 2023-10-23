@@ -7,12 +7,32 @@ import { useEffect, useState } from "react";
 import facebook from "./images/facebook.png";
 import google from "./images/google.png";
 import bg from "./images/login/sideBg.jpg";
-import { useLoginMutation } from "./redux/auth/authApi";
+import { useGoogleAuthQuery, useLoginMutation } from "./redux/auth/authApi";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isCall, setIsCall] = useState(false);
+  const {
+    data,
+    isError: googleError,
+    isSuccess: googleSucess,
+    isLoading: googleLoading,
+    error: responseGoogleError,
+  } = useGoogleAuthQuery({
+    isCall,
+  });
+
+  if (googleLoading) {
+    console.log("I am google Loading");
+  } else if (!googleLoading && googleError) {
+    console.log(responseGoogleError);
+  } else if (!googleLoading && !googleError && googleSucess) {
+    console.log("I am sucess");
+    console.log(data);
+  }
+  console.log(isCall);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,7 +64,11 @@ export default function Home() {
       setError("");
     }
   }, [responseError, isSuccess]);
-  console.log(error);
+
+  const handleAuth = () => {
+    setIsCall(!isCall);
+    console.log("Hi I am Login Page");
+  };
 
   return (
     <div className="max-w-screen-xl flex flex-wrap flex-col items-center mx-auto my-20">
@@ -91,7 +115,10 @@ export default function Home() {
 
             <div className=" mt-10 text-center">
               <div className=" flex items-center gap-5 justify-center">
-                <div className=" bg-neutral-100 p-3 cursor-pointer rounded-full">
+                <div
+                  onClick={handleAuth}
+                  className=" bg-neutral-100 p-3 cursor-pointer rounded-full"
+                >
                   <Image src={google} alt="google" width={30} />
                 </div>
                 <div className="bg-neutral-100 p-3 cursor-pointer rounded-full">
