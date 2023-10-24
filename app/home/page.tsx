@@ -9,11 +9,7 @@ import WatchMovies from "./components/WatchMovies";
 
 export default function page() {
   const { data, isLoading, isError, isSuccess, error } = useHomeQuery();
-  console.log(data);
-  console.log(isLoading);
-  console.log(isError);
-  console.log(isSuccess);
-  console.log(error);
+
   return (
     <div>
       <Hero />

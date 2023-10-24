@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PiFilmReelFill } from "react-icons/pi";
 import poster1 from "../../images/poster/poster1.jpg";
 import poster2 from "../../images/poster/poster2.jpg";
@@ -58,9 +59,12 @@ export default function WatchMovies() {
                       <h2 className=" text-[20px] font-semibold">
                         {data?.name}
                       </h2>
-                      <button className=" mt-2 text-[14px] bg-white text-slate-600 px-3 py-2 group-hover:bg-secondary group-hover:text-white transition">
+                      <Link
+                        href="/ticket"
+                        className=" mt-2 text-[14px] bg-white text-slate-600 px-3 py-2 hover:bg-secondary hover:text-white transition"
+                      >
                         Get Ticket
-                      </button>
+                      </Link>
                     </div>
                   </div>
                   <Image

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 import { FiMinus } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import hollImg from "../../images/TicketDetails/hall.png";
@@ -10,6 +11,7 @@ import showTimeImg from "../../images/TicketDetails/showTime.png";
 import ticketImg from "../../images/TicketDetails/ticket.png";
 import totalAmountImg from "../../images/TicketDetails/total.png";
 
+import { useAddPaymentMutation } from "@/app/redux/ticket/ticketApi";
 import Link from "next/link";
 import poster1 from "../../images/poster/poster1.jpg";
 export default function TicketsSummary() {
@@ -60,6 +62,34 @@ export default function TicketsSummary() {
       des: totalAmount ? totalAmount : <FiMinus />,
     },
   ];
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+
+  const [addPayment, { data, isLoading, isError, isSuccess }] =
+    useAddPaymentMutation();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Bangladsh");
+    addPayment({
+      location,
+      showDate,
+      hallName,
+      showTime,
+      seatType,
+      ticketQuantity,
+      totalAmount,
+      name,
+      mobile,
+    });
+    console.log(location);
+    console.log(showDate);
+    console.log(hallName);
+    console.log(showTime);
+    console.log(seatType);
+    console.log(ticketQuantity);
+    console.log(totalAmount);
+  };
   return (
     <div>
       <h2 className=" mb-5 text-xl font-semibold text-primary">
@@ -98,10 +128,12 @@ export default function TicketsSummary() {
         </div>
         <div className=" mt-10 ">
           <h2 className=" text-xl font-semibold text-primary">Ticket For</h2>
-          <form className=" mt-3 clear-left space-y-5">
+          <form onSubmit={handleSubmit} className=" mt-3 clear-left space-y-5">
             <div>
               <input
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
                 placeholder="Enter your full name"
                 className=" text-neutral-500 px-3 py-3 rounded-md w-full focus:outline-none border border-neutral-400"
@@ -110,6 +142,8 @@ export default function TicketsSummary() {
             <div>
               <input
                 required
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
                 type="number"
                 placeholder="Enter your mobile number"
                 className=" text-neutral-500 px-3 py-3 rounded-md w-full focus:outline-none border border-neutral-400"

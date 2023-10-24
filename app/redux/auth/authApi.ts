@@ -28,7 +28,7 @@ const authApi = apiSlice.injectEndpoints({
     }),
 
     googleAuth: builder.query({
-      query: () => "auth/google",
+      query: () => "/auth/google",
     }),
   }),
 });

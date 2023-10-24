@@ -126,10 +126,13 @@ export default function TopMoviesSlider() {
                 <h2 className=" cursor-pointer text-2xl font-semibold hover:text-secondary transition">
                   {data?.name}
                 </h2>
-                <div>
-                  <button className="  bg-neutral-200 px-3 py-2 mt-5 hover:bg-secondary hover:text-white transition">
+                <div className="pt-5">
+                  <Link
+                    href="/ticket"
+                    className="  bg-neutral-200 px-3 py-2  hover:bg-secondary hover:text-white transition"
+                  >
                     Get Ticket
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
