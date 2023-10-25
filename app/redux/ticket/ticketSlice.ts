@@ -6,6 +6,7 @@ const initialState = {
   hallName: "",
   showTime: "",
   seatType: "",
+  error: false,
   ticketQuantity: 0,
   totalAmount: 0,
 };
@@ -44,6 +45,13 @@ const ticketSlice = createSlice({
     decrementSumTotalAmount: (state, action) => {
       state.totalAmount = state.totalAmount - action.payload;
     },
+    addError: (state, action) => {
+      state.error = action.payload;
+    },
+    removeError: (state, action) => {
+      console.log(action.payload);
+      state.error = false;
+    },
   },
 });
 
@@ -58,6 +66,8 @@ export const {
   decrementTicketQuantity,
   incrementSumTotalAmount,
   decrementSumTotalAmount,
+  addError,
+  removeError,
 } = ticketSlice.actions;
 
 export default ticketSlice.reducer;

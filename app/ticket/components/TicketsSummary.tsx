@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiMinus } from "react-icons/fi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
 import hollImg from "../../images/TicketDetails/hall.png";
 import locationImg from "../../images/TicketDetails/location.png";
 import seatImg from "../../images/TicketDetails/seat.png";
@@ -24,6 +25,7 @@ export default function TicketsSummary() {
     ticketQuantity,
     totalAmount,
   } = useSelector((state) => state.ticket);
+  const dispatch = useDispatch();
 
   const TicketInfo = [
     {
@@ -63,32 +65,46 @@ export default function TicketsSummary() {
     },
   ];
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
+  const [error, setError] = useState();
 
-  const [addPayment, { data, isLoading, isError, isSuccess }] =
-    useAddPaymentMutation();
+  const [
+    addPayment,
+    { data, isLoading, isError, isSuccess, error: responseError },
+  ] = useAddPaymentMutation();
+  let content;
+  if (isLoading) {
+    content = <div>Loading...</div>;
+  } else if (!isLoading && isError) {
+  } else if (!isLoading && !isError && data) {
+    const { url } = data;
+    console.log(url);
+  }
+
+  useEffect(() => {
+    if (responseError) {
+      const { error: err } = responseError?.data || {};
+      console.log(err);
+      setError(err);
+    }
+  }, [responseError]);
+  console.log(error);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Bangladsh");
     addPayment({
       location,
       showDate,
       hallName,
       showTime,
+      email,
       seatType,
       ticketQuantity,
       totalAmount,
       name,
       mobile,
     });
-    console.log(location);
-    console.log(showDate);
-    console.log(hallName);
-    console.log(showTime);
-    console.log(seatType);
-    console.log(ticketQuantity);
-    console.log(totalAmount);
   };
   return (
     <div>
@@ -138,19 +154,46 @@ export default function TicketsSummary() {
                 placeholder="Enter your full name"
                 className=" text-neutral-500 px-3 py-3 rounded-md w-full focus:outline-none border border-neutral-400"
               />
+              {error?.name?.msg ? (
+                <p className=" text-sm text-primary">{error?.name?.msg}</p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div>
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="Enter your email"
+                className=" text-neutral-500 px-3 py-3 rounded-md w-full focus:outline-none border border-neutral-400"
+              />
+              {error?.email?.msg ? (
+                <p className=" text-sm text-primary">{error?.email?.msg}</p>
+              ) : (
+                ""
+              )}
             </div>
             <div>
               <input
                 required
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
-                type="number"
+                type="text"
                 placeholder="Enter your mobile number"
                 className=" text-neutral-500 px-3 py-3 rounded-md w-full focus:outline-none border border-neutral-400"
               />
+              {error?.mobile?.msg ? (
+                <p className=" text-sm text-primary">{error?.mobile?.msg}</p>
+              ) : (
+                ""
+              )}
             </div>
+
             <div>
               <button
+                disabled={isLoading}
                 type="submit"
                 className=" w-full py-3 rounded-md text-white font-semibold uppercase bg-primary"
               >
@@ -158,6 +201,10 @@ export default function TicketsSummary() {
               </button>
             </div>
           </form>
+          {/* error modal  */}
+          {/* {error && <ErrorModal errMessag={error} />} */}
+          {/* error modal  */}
+
           <p className=" text-[12px] text-justify mt-4">
             By clicking the Purchase Tickets you are accepting{" "}
             <Link target="_" href="/" className=" text-primary underline">
