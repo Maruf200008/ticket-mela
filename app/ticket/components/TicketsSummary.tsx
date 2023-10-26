@@ -1,10 +1,13 @@
 "use client";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FiMinus } from "react-icons/fi";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import hollImg from "../../images/TicketDetails/hall.png";
+
 import locationImg from "../../images/TicketDetails/location.png";
 import seatImg from "../../images/TicketDetails/seat.png";
 import showDateImg from "../../images/TicketDetails/showDate.png";
@@ -25,7 +28,6 @@ export default function TicketsSummary() {
     ticketQuantity,
     totalAmount,
   } = useSelector((state) => state.ticket);
-  const dispatch = useDispatch();
 
   const TicketInfo = [
     {
@@ -73,13 +75,10 @@ export default function TicketsSummary() {
     addPayment,
     { data, isLoading, isError, isSuccess, error: responseError },
   ] = useAddPaymentMutation();
-  let content;
-  if (isLoading) {
-    content = <div>Loading...</div>;
-  } else if (!isLoading && isError) {
-  } else if (!isLoading && !isError && data) {
+
+  if (!isLoading && !isError && data) {
     const { url } = data;
-    console.log(url);
+    redirect(url);
   }
 
   useEffect(() => {
@@ -87,24 +86,46 @@ export default function TicketsSummary() {
       const { error: err } = responseError?.data || {};
       console.log(err);
       setError(err);
+    } else if (!responseError && isSuccess) {
+      setError("");
     }
-  }, [responseError]);
-  console.log(error);
+  }, [responseError, isSuccess]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPayment({
-      location,
-      showDate,
-      hallName,
-      showTime,
-      email,
-      seatType,
-      ticketQuantity,
-      totalAmount,
-      name,
-      mobile,
-    });
+    if (
+      location &&
+      showDate &&
+      hallName &&
+      showTime &&
+      seatType &&
+      ticketQuantity &&
+      totalAmount
+    ) {
+      addPayment({
+        location,
+        showDate,
+        hallName,
+        showTime,
+        email,
+        seatType,
+        ticketQuantity,
+        totalAmount,
+        name,
+        mobile,
+      });
+    } else {
+      toast.error("Please Give All Information", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
   return (
     <div>
@@ -202,7 +223,19 @@ export default function TicketsSummary() {
             </div>
           </form>
           {/* error modal  */}
-          {/* {error && <ErrorModal errMessag={error} />} */}
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+
           {/* error modal  */}
 
           <p className=" text-[12px] text-justify mt-4">

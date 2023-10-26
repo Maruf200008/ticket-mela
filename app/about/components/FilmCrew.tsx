@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import { PiFilmReelFill } from "react-icons/pi";
+import { josefin_sans } from "../../fonts";
+
 import image1 from "../../images/about/image-1-our-team.jpg";
 import image2 from "../../images/about/image-2-our-team.jpg";
 import image3 from "../../images/about/image-3-our-team.jpg";
@@ -12,7 +14,9 @@ export default function FilmCrew() {
         <PiFilmReelFill />
       </div>
       <p className=" text-lg text-neutral-500">The Film Crew</p>
-      <h1 className=" text-[40px] font-semibold">Professional Film Crew</h1>
+      <h1 className={` text-[50px] font-semibold ${josefin_sans.className}`}>
+        Professional Film Crew
+      </h1>
       <div className=" my-10 grid grid-cols-3 gap-10 w-full p-3">
         <div className="group ">
           <div className=" relative ">

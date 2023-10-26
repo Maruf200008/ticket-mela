@@ -1,4 +1,5 @@
 import { PiFilmReelFill } from "react-icons/pi";
+import { josefin_sans } from "../../fonts";
 
 export default function ContactWithUs() {
   return (
@@ -8,7 +9,9 @@ export default function ContactWithUs() {
       </div>
       <p className=" text-neutral-500 pt-3">Contact With Us</p>
       <div className=" w-[700px]">
-        <h1 className=" text-[60px] font-semibold leading-[65px] mt-5">
+        <h1
+          className={`text-[60px] font-semibold leading-[65px] mt-5 ${josefin_sans.className}`}
+        >
           Feel Free to Write us Anytime
         </h1>
       </div>

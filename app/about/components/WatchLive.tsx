@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { josefin_sans } from "../../fonts";
 import bgImg from "../../images/about/bgDiscoverMore.jpg";
 import ProducerDetail from "./ProducerDetail";
+
 export default function WatchLive() {
   return (
     <div className=" my-20  h-[750px] ">
@@ -9,7 +11,9 @@ export default function WatchLive() {
         <Image src={bgImg} alt="bgImg" className=" " />
         <div className=" absolute top-[150px] text-center w-full text-white flex items-center justify-center ">
           <div className=" w-[780px]">
-            <h2 className=" text-[60px] leading-[70px] font-semibold">
+            <h2
+              className={`text-[60px] leading-[70px] font-semibold ${josefin_sans.className}`}
+            >
               Watch Live Interview with Movie Producer
             </h2>
             <div className=" mt-10">

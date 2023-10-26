@@ -53,12 +53,10 @@ export default function Footer() {
                     <FaGithub />
                   </Link>
                 </div>
-
-                <div></div>
               </div>
             </div>
-            <div className=" flex gap-10 mt-20 ">
-              <div className=" space-y-5 mr-[60px]">
+            <div className=" grid sm:grid-cols-2 lg:grid-cols-4 mt-10">
+              <div className=" space-y-5 xl:mr-[60px]">
                 <p className=" text-xl font-semibold leading-10">
                   Buy movie tickets easily with <br /> Aovis system nationwide
                 </p>
@@ -88,7 +86,7 @@ export default function Footer() {
                   </li>
                 </ul>
               </div>
-              <div className=" mr-[150px]">
+              <div className=" lg:mr-[150px]">
                 <h2 className=" text-xl text-secondary font-semibold">Links</h2>
                 <ul className=" mt-7 space-y-7 text-sm text-neutral-600">
                   <li className=" hover:text-secondary transition footer-list">
@@ -122,7 +120,7 @@ export default function Footer() {
                     <div className="relative w-full">
                       <input
                         type="text"
-                        className="bg-gray-50  text-gray-900 text-sm  focus:outline-none h-[60px]  block w-[300px] p-3 "
+                        className="bg-gray-50  text-gray-900 text-sm  focus:outline-none h-[60px]  block md:w-[300px] p-3 "
                         placeholder="Email Address"
                         required
                       />

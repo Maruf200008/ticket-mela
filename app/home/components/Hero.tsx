@@ -5,24 +5,25 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import Image from "next/image";
-import banner from "../../images/heroBanner.jpg";
+import { josefin_sans } from "../../fonts";
 
 export default function Hero() {
   return (
-    <div>
+    <div className=" heroContainer">
       <div>
         <div className=" w-full h-[700px] overflow-hidden relative">
           <div className=" bg-gradient-to-t from-black  absolute h-full w-full">
             <div className=" flex items-center justify-center my-[300px] flex-col">
-              <h1 className=" text-[50px] text-white font-bold uppercase text-center">
+              <h1
+                className={` text-[35px] md:text-[50px] text-white font-bold uppercase text-center ${josefin_sans.className}`}
+              >
                 Unlimited movies
               </h1>
-              <p className=" text-white text-xl">
+              <p className=" text-neutral-300 text-center text-sm  md:text-xl">
                 The Best Movie Ticket Distributor
               </p>
 
-              <div className=" mt-10 w-[500px]">
+              <div className=" mt-10 md:w-[500px]">
                 <form>
                   <label className="mb-2 text-sm font-medium text-gray-900 sr-only">
                     Search
@@ -47,13 +48,13 @@ export default function Hero() {
                     </div>
                     <input
                       type="search"
-                      className=" focus:outline-none block w-full p-4 pl-10 text-sm text-white border border-gray-600 rounded-lg bg-black/50"
+                      className="  focus:outline-none block w-full p-4 pl-10 text-sm text-white border border-gray-600 rounded-lg bg-black/50"
                       placeholder="Search your fevourite movies..."
                       required
                     />
                     <button
                       type="submit"
-                      className="text-white absolute right-2.5 bottom-2.5 bg-primary  font-medium rounded-lg text-sm px-4 py-2 "
+                      className="text-white absolute right-2 bottom-2 sm:right-2.5 sm:bottom-2.5 bg-primary  font-medium rounded-lg text-sm px-4 py-2 "
                     >
                       Search
                     </button>
@@ -62,7 +63,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <Image src={banner} alt="banner" />
         </div>
       </div>
     </div>

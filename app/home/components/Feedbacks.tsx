@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PiFilmReelFill } from "react-icons/pi";
+import { josefin_sans } from "../../fonts";
 
 import feedback from "../../images/feedbackImg.png";
 import FeedbackSlider from "./FeedbackSlider";
@@ -13,7 +14,9 @@ export default function Feedbacks() {
             <PiFilmReelFill />
           </div>
           <p className=" text-neutral-500 font-semibold mt-3">Our Feedbacks</p>
-          <h2 className=" text-[60px] font-bold leading-[70px] mt-6">
+          <h2
+            className={` text-[65px] font-bold leading-[70px] mt-6 ${josefin_sans.className}`}
+          >
             What They’re Talking About us?
           </h2>
           <FeedbackSlider />

@@ -1,21 +1,24 @@
 import Image from "next/image";
 import { PiFilmReelFill } from "react-icons/pi";
+import { josefin_sans } from "../../fonts";
 
 import film from "../../images/about/filmIcon.png";
 import img1 from "../../images/about/image1.jpg";
 export default function GetToKnow() {
   return (
-    <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4  overflow-hidden">
+    <div className=" max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4  overflow-hidden">
       <div className=" grid grid-cols-2 gap-5 my-11">
         <div>
           <Image src={img1} alt="img" />
         </div>
-        <div className=" space-y-3">
+        <div className=" space-y-3 ">
           <div className=" text-secondary text-2xl">
             <PiFilmReelFill />
           </div>
           <p className=" text-gray-500">Get To Know</p>
-          <h1 className=" text-[55px] leading-[55px] font-semibold">
+          <h1
+            className={`text-[55px] leading-[55px] font-semibold ${josefin_sans.className}`}
+          >
             Proving the Best Film Services
           </h1>
           <div className=" pt-10 leading-7 text-[18px] text-gray-400">

@@ -1,4 +1,5 @@
 import { PiFilmReelFill } from "react-icons/pi";
+import { josefin_sans } from "../../fonts";
 import TopMoviesSlider from "./TopMoviesSlider";
 
 export default function TopMovies() {
@@ -12,7 +13,9 @@ export default function TopMovies() {
           Checkout Top Movies
         </p>
       </div>
-      <h1 className=" text-[50px] font-bold">Top Movies in Theater</h1>
+      <h1 className={` text-[50px] font-bold ${josefin_sans.className}`}>
+        Top Movies in Theater
+      </h1>
       <TopMoviesSlider />
     </div>
   );

@@ -1,25 +1,24 @@
 import Image from "next/image";
 import { PiFilmReelFill } from "react-icons/pi";
-import bg from "../images/ticketPrice/background-blog-home-1.png";
+import { josefin_sans } from "../fonts";
 import tick from "../images/ticketPrice/checked.png";
 export default function page() {
   return (
-    <div className=" relative h-[1500px]">
-      <div className=" h-[320px] overflow-hidden">
-        <Image src={bg} alt="bg" />
-      </div>
-      <div className="max-w-screen-xl w-full translate-x-[150px] flex flex-wrap items-center mx-auto p-4 absolute top-2">
+    <div className=" ticketPricegContainter">
+      <div className="max-w-screen-xl w-full flex  items-center mx-auto p-4 top-2">
         <div className=" w-full my-10  flex items-center justify-center flex-col ">
           <div className=" text-[25px] text-center text-secondary">
             <PiFilmReelFill />
           </div>
-          <div className=" space-y-2  text-center">
-            <h1 className=" text-[50px] font-semibold">Ticket Price</h1>
+          <div className=" text-center">
+            <h1 className={`text-[50px] font-bold ${josefin_sans.className}`}>
+              Ticket Price
+            </h1>
             <p className=" text-neutral-700 font-semibold">
               Tickets are on sale one day in advance
             </p>
 
-            <p className=" w-[900px] text-neutral-700 pt-5">
+            <p className=" w-[900px] mx-auto text-neutral-700 flex text-center justify-center pt-5">
               And now you can purchase tickets online through our "Entertainment
               Card" available at the ticket counters. You can book tickets over
               the phone through our member hotline and pick up your tickets

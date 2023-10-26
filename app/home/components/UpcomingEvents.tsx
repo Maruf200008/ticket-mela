@@ -3,7 +3,7 @@ import { BiSolidTimeFive } from "react-icons/bi";
 import { BsArrowRightShort } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { PiFilmReelFill } from "react-icons/pi";
-import patternBg from "../../images/patternBg.jpg";
+import { josefin_sans } from "../../fonts";
 import img1 from "../../images/upCommingEvent/img1.jpg";
 import img2 from "../../images/upCommingEvent/img2.jpg";
 import img3 from "../../images/upCommingEvent/img3.jpg";
@@ -30,21 +30,22 @@ export default function UpcomingEvents() {
     },
   ];
   return (
-    <div className=" relative  w-full  ">
-      <Image src={patternBg} alt="patternBg" width={700} />
-      <div>
-        <div className=" absolute  w-full left-[10%]  top-[100px] max-w-screen-xl  mx-auto p-4 flex items-center justify-center flex-col">
-          <div className=" flex items-center justify-center flex-col gap-3">
+    <div className=" w-full upCommingContainter pt-10  ">
+      <div className="">
+        <div className="   p-4 flex items-center justify-center flex-col">
+          <div className=" flex items-center justify-center flex-col gap-5">
             <div className=" text-center text-[30px] text-secondary">
               <PiFilmReelFill />
             </div>
             <div className=" text-center">
               <p className=" text-[18px] text-neutral-500">Upcoming Events</p>
-              <h2 className=" text-[45px] font-bold leading-[50px] mt-2">
+              <h2
+                className={` text-[45px] font-bold leading-[50px] mt-2 ${josefin_sans.className}`}
+              >
                 Register Yourself now <br /> for the Events
               </h2>
             </div>
-            <div className=" grid grid-cols-3 gap-5 mt-7  w-full  ">
+            <div className=" grid grid-cols-3 gap-10 mt-7  w-full  ">
               {eventsData.map((data, index) => (
                 <div key={index} className=" relative">
                   <div className="  to-transparent absolute bg-black/70  w-full h-full  group overflow-hidden     p-7 ">

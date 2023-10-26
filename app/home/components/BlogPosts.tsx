@@ -2,10 +2,12 @@ import Image from "next/image";
 import { FaComments } from "react-icons/fa";
 import { GrBottomCorner } from "react-icons/gr";
 import { PiFilmReelFill } from "react-icons/pi";
+import { josefin_sans } from "../../fonts";
 import avatar from "../../images/avatar.png";
 import blogIm1 from "../../images/blogImg/blog-1.jpg";
 import blogIm2 from "../../images/blogImg/blog-2.jpg";
 import blogIm3 from "../../images/blogImg/blog-3.jpg";
+
 export default function BlogPosts() {
   const blogData = [
     {
@@ -28,18 +30,20 @@ export default function BlogPosts() {
     },
   ];
   return (
-    <div className=" h-[950px]">
-      <div className=" mt-[380px] bg-secondary h-[500px]">
+    <div className=" h-[950px] mt-20">
+      <div className=" bg-secondary h-[500px]">
         <div className="max-w-screen-xl  mx-auto p-4 flex items-center flex-col">
           <div className="  mt-[80px] flex items-center flex-col space-y-2">
             <div className=" text-center text-[30px] text-white">
               <PiFilmReelFill />
             </div>
             <p className=" text-white text-[18px]">Directly Blog Posts</p>
-            <h1 className=" text-[50px] text-center pb-10 text-white font-bold leading-[60px]">
+            <h1
+              className={` text-[50px] text-center pb-10 text-white font-bold leading-[60px] ${josefin_sans.className}`}
+            >
               Latest News & Articles <br /> from the Posts
             </h1>
-            <div className="   mt-[30px] grid grid-cols-3 gap-10">
+            <div className="   mt-[30px] grid md:grid-cols-3 gap-10">
               {blogData.map((data, index) => (
                 <div key={index}>
                   <div className=" group">

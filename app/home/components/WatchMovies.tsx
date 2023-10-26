@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PiFilmReelFill } from "react-icons/pi";
+import { josefin_sans } from "../../fonts";
 import poster1 from "../../images/poster/poster1.jpg";
 import poster2 from "../../images/poster/poster2.jpg";
 import poster3 from "../../images/poster/poster3.jpg";
@@ -43,11 +44,13 @@ export default function WatchMovies() {
           </div>
           <div>
             <h3 className=" text-center text-[#f8ab88]">Watch New Movies</h3>
-            <h1 className=" text-[60px] text-white font-bold text-center">
+            <h1
+              className={` text-[40px] lg:text-[60px] text-white font-bold text-center ${josefin_sans.className}`}
+            >
               Movie Now Playing
             </h1>
 
-            <div className=" mt-5 flex items-center gap-5 justify-center  ">
+            <div className=" mt-5 grid md:grid-cols-5 gap-10 ">
               {posterDetails.map((data, index) => (
                 <div
                   key={index}
@@ -56,7 +59,7 @@ export default function WatchMovies() {
                   <div className=" absolute w-full h-full bg-gradient-to-t from-slate-800/50 z-40  ">
                     <div className=" absolute bottom-2 p-3 text-white ">
                       <p className=" text-[12px]">{data?.catagory}</p>
-                      <h2 className=" text-[20px] font-semibold">
+                      <h2 className=" text-[20px] font-semibold pb-4">
                         {data?.name}
                       </h2>
                       <Link
