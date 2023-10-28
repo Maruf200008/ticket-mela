@@ -45,7 +45,7 @@ export default function FeedbackSlider() {
     },
   ];
   return (
-    <div className=" mt-10">
+    <div className=" mt-10 w-[320px] sm:w-[600px]  md:w-[750px] lg:w-full">
       <Swiper
         centeredSlides={true}
         autoplay={{
@@ -58,8 +58,8 @@ export default function FeedbackSlider() {
         {personData.map((data, index) => (
           <SwiperSlide key={index}>
             <div>
-              <div className=" flex items-center gap-7">
-                <div className="bg-secondary rounded-full p-2">
+              <div className=" w-full md:flex items-center gap-7">
+                <div className="bg-secondary w-[150px]   rounded-full p-2">
                   <div className=" bg-white rounded-full p-1">
                     <Image
                       src={message}
@@ -75,7 +75,7 @@ export default function FeedbackSlider() {
                     />
                   </div>
                 </div>
-                <div className=" space-y-1">
+                <div className=" space-y-1 mt-7 md:mt-0">
                   <div className=" flex items-center gap-2 text-secondary">
                     <div>
                       <AiFillStar />
@@ -102,7 +102,7 @@ export default function FeedbackSlider() {
                 </div>
               </div>
               <div className=" mt-5">
-                <p className=" text-[18px] leading-10 text-neutral-600">
+                <p className=" text-[18px] w-full leading-10 text-neutral-600">
                   This is due to their excellent service, competitive pricing
                   and customer support. It's refresing to get such a personal
                   touch. Duis aute lorem ipsum is simply free text available in

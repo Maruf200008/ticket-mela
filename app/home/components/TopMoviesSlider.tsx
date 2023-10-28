@@ -19,7 +19,6 @@ import "swiper/css/pagination";
 // import required modules
 import Image from "next/image";
 import Link from "next/link";
-import { FreeMode, Pagination } from "swiper/modules";
 
 export default function TopMoviesSlider() {
   const moviesDetails = [
@@ -75,42 +74,43 @@ export default function TopMoviesSlider() {
   return (
     <div className=" w-full my-7">
       <Swiper
-        slidesPerView={2}
         spaceBetween={40}
         freeMode={true}
+        breakpoints={{
+          768: {
+            slidesPerView: 2,
+          },
+        }}
         pagination={{
           clickable: true,
           dynamicBullets: true,
         }}
-        modules={[FreeMode, Pagination]}
         className="mySwiper"
       >
         {moviesDetails.map((data) => (
           <SwiperSlide key={data?.id}>
-            <div className=" bg-white w-[550px] h-[250px] relative mb-8    shadow-xl grid grid-cols-2 group gap-x-3 overflow-hidden ">
+            <div className=" bg-white lg:w-[550px] lg:h-[250px] relative    shadow-xl grid lg:grid-cols-2 group  gap-5 overflow-hidden ">
               <Image
                 src={filmBc}
                 alt="film"
-                width={350}
-                className=" absolute -right-[150px] opacity-10 mt-10  "
+                className=" hidden lg:block  order-last lg:order-last lg:absolute lg:-right-[150px] opacity-10 lg:mt-10"
               />
 
-              <div className=" h-full overflow-hidden  ">
+              <div className=" order-first lg:order-fast h-full overflow-hidde">
                 <Image
                   src={data?.img}
                   alt="poster"
-                  width={270}
-                  className="absolute bottom-7 group-hover:bottom-0 ease-in-out duration-300"
+                  className="lg:absolute w-[400px] h-[300px] md:w-[400px] md:h-[300px] lg:w-[300px]  lg:bottom-7 group-hover:bottom-0 ease-in-out duration-300"
                 />
                 <Link
                   href={data?.link}
                   target="_"
-                  className=" z-40 absolute top-[30%] group-hover:top-[45%] text-[50px] left-[110px] ease-in-out duration-300 text-white cursor-pointer hover:text-secondary "
+                  className=" z-40 absolute top-[25%] lg:group-hover:top-[45%] text-[50px]  inset-x-[45%] lg:inset-x-[25%]  ease-in-out duration-300 text-white cursor-pointer hover:text-secondary "
                 >
                   <AiFillPlayCircle />
                 </Link>
               </div>
-              <div className=" p-4 mt-7 space-y-2 z-40 mr-6">
+              <div className="  p-4   space-y-2 z-40 lg:ml-5 ">
                 <div className=" flex items-center gap-3">
                   <Image src={tag} alt="tag" width={13} />
                   <p className=" text-[12px] text-neutral-500">
@@ -124,7 +124,9 @@ export default function TopMoviesSlider() {
                   <p className=" text-[12px] text-neutral-500 ">{data?.time}</p>
                 </div>
                 <h2 className=" cursor-pointer text-2xl font-semibold hover:text-secondary transition">
-                  {data?.name}
+                  {data?.name.length > 20
+                    ? data?.name.slice(0, 15) + "..."
+                    : data?.name}
                 </h2>
                 <div className="pt-5">
                   <Link

@@ -40,12 +40,12 @@ export default function UpcomingEvents() {
             <div className=" text-center">
               <p className=" text-[18px] text-neutral-500">Upcoming Events</p>
               <h2
-                className={` text-[45px] font-bold leading-[50px] mt-2 ${josefin_sans.className}`}
+                className={` text-[27px] sm:text-[35px] lg:text-[45px] font-bold lg:leading-[50px] mt-2 ${josefin_sans.className}`}
               >
                 Register Yourself now <br /> for the Events
               </h2>
             </div>
-            <div className=" grid grid-cols-3 gap-10 mt-7  w-full  ">
+            <div className=" grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-7  w-full  ">
               {eventsData.map((data, index) => (
                 <div key={index} className=" relative">
                   <div className="  to-transparent absolute bg-black/70  w-full h-full  group overflow-hidden     p-7 ">

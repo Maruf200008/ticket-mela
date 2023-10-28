@@ -30,7 +30,7 @@ export default function BlogPosts() {
     },
   ];
   return (
-    <div className=" h-[950px] mt-20">
+    <div className=" h-[1700px] sm:h-[1300px] md:h-[1500px] lg:h-[1000px] mt-20">
       <div className=" bg-secondary h-[500px]">
         <div className="max-w-screen-xl  mx-auto p-4 flex items-center flex-col">
           <div className="  mt-[80px] flex items-center flex-col space-y-2">
@@ -39,14 +39,14 @@ export default function BlogPosts() {
             </div>
             <p className=" text-white text-[18px]">Directly Blog Posts</p>
             <h1
-              className={` text-[50px] text-center pb-10 text-white font-bold leading-[60px] ${josefin_sans.className}`}
+              className={` text-[25px] sm:text-[35px] md:text-[50px] text-center pb-10 text-white font-bold md:leading-[60px] ${josefin_sans.className}`}
             >
               Latest News & Articles <br /> from the Posts
             </h1>
-            <div className="   mt-[30px] grid md:grid-cols-3 gap-10">
+            <div className="   lg:mt-[30px] grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 lg:gap-10">
               {blogData.map((data, index) => (
                 <div key={index}>
-                  <div className=" group">
+                  <div className=" group ">
                     <div className="relative   ">
                       <div className=" overflow-hidden">
                         <div className=" absolute w-full h-full z-30 ease-in-out duration-300 group-hover:bg-black/50 bg-black/0"></div>
@@ -57,7 +57,7 @@ export default function BlogPosts() {
                         />
                       </div>
                     </div>
-                    <div className=" bg-white mb-32 relative  p-8 w-full shadow-2xl shadow-gray-200 ease-in-out duration-300 hover:shadow-gray-500/30 transition">
+                    <div className=" mb-10  bg-white lg:mb-32 relative  p-8 w-full shadow-2xl shadow-gray-200 ease-in-out duration-300 hover:shadow-gray-500/30 transition">
                       <div className=" absolute -top-3 z-50 bg-secondary right-10 px-2 text-white text-sm py-1">
                         <p>{data?.date}</p>
                       </div>
@@ -85,7 +85,7 @@ export default function BlogPosts() {
                         </div>
                       </div>
                       <div className=" mr-6 space-y-3">
-                        <h1 className=" text-[22px] font-semibold hover:text-secondary cursor-pointer transition">
+                        <h1 className=" text-[18px] md:text-[22px] font-semibold hover:text-secondary cursor-pointer transition">
                           {data?.title}
                         </h1>
                         <div className=" flex items-center text-neutral-500">

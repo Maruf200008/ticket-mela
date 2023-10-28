@@ -10,11 +10,16 @@ export default function Footer() {
       <div className=" bg-black">
         <div className="max-w-screen-xl  mx-auto  flex items-center flex-col  text-white py-10">
           <div className=" w-full">
-            <div className=" flex items-center justify-between border-b pb-7 border-gray-600">
+            <div className=" flex flex-col md:flex-row p-4 md:items-center justify-between border-b pb-7 border-gray-600">
               <Link href="/">
-                <Image src={logo} alt="logo" width={180} />
+                <Image
+                  src={logo}
+                  alt="logo"
+                  width={180}
+                  className=" mb-5 md:mb-0"
+                />
               </Link>
-              <div className=" flex items-center gap-6">
+              <div className=" flex flex-col md:flex-row  md:items-center gap-6">
                 <div className=" flex items-center gap-2  font-light text-gray-500">
                   <Link
                     href="about"
@@ -55,58 +60,78 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className=" grid sm:grid-cols-2 lg:grid-cols-4 mt-10">
+            <div className=" grid p-4 sm:grid-cols-2 lg:grid-cols-4 mt-10">
               <div className=" space-y-5 xl:mr-[60px]">
                 <p className=" text-xl font-semibold leading-10">
                   Buy movie tickets easily with <br /> Aovis system nationwide
                 </p>
-                <button className=" bg-secondary px-3 py-2 hover:bg-white hover:text-secondary transition">
+                <button className=" bg-secondary px-3 py-2 hover:bg-white hover:text-secondary transition ">
                   Get Your Ticket
                 </button>
               </div>
-              <div className=" mr-[90px]">
+              <div className=" lg:mr-[90px] mt-10 sm:mt-0">
                 <h2 className=" text-xl text-secondary font-semibold">
                   Movies
                 </h2>
                 <ul className=" mt-7 space-y-7 text-sm text-neutral-600">
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">Action</Link>
+                  <li className=" hover:text-secondary transition ">
+                    <Link href="/" className="footer-list">
+                      Action
+                    </Link>
                   </li>
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">Adventure</Link>
+                  <li className=" hover:text-secondary transition ">
+                    <Link href="/" className="footer-list">
+                      Adventure
+                    </Link>
                   </li>
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">Animation</Link>
+                  <li className=" hover:text-secondary transition ">
+                    <Link href="/" className="footer-list">
+                      Animation
+                    </Link>
                   </li>
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">Comedy</Link>
+                  <li className=" hover:text-secondary transition ">
+                    <Link href="/" className="footer-list">
+                      Comedy
+                    </Link>
                   </li>
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">Crime</Link>
+                  <li className=" hover:text-secondary transition ">
+                    <Link href="/" className="footer-list">
+                      Crime
+                    </Link>
                   </li>
                 </ul>
               </div>
-              <div className=" lg:mr-[150px]">
+              <div className=" lg:mr-[150px] mt-10 md:mt-0">
                 <h2 className=" text-xl text-secondary font-semibold">Links</h2>
                 <ul className=" mt-7 space-y-7 text-sm text-neutral-600">
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">About</Link>
+                  <li className=" hover:text-secondary transition">
+                    <Link href="/" className="footer-list">
+                      About
+                    </Link>
                   </li>
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">My Account</Link>
+                  <li className=" hover:text-secondary transition">
+                    <Link href="/" className="footer-list">
+                      My Account
+                    </Link>
                   </li>
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">News</Link>
+                  <li className=" hover:text-secondary transition">
+                    <Link href="/" className="footer-list">
+                      News
+                    </Link>
                   </li>
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">Latest Events</Link>
+                  <li className=" hover:text-secondary transition">
+                    <Link href="/" className="footer-list">
+                      Latest Events
+                    </Link>
                   </li>
-                  <li className=" hover:text-secondary transition footer-list">
-                    <Link href="/">Contact</Link>
+                  <li className=" hover:text-secondary transition ">
+                    <Link href="/" className="footer-list">
+                      Contact
+                    </Link>
                   </li>
                 </ul>
               </div>
-              <div className=" space-y-10  ">
+              <div className=" space-y-10 mt-10 md:mt-0  ">
                 <h2 className=" text-xl text-secondary font-semibold">
                   Newsletter
                 </h2>
@@ -120,7 +145,7 @@ export default function Footer() {
                     <div className="relative w-full">
                       <input
                         type="text"
-                        className="bg-gray-50  text-gray-900 text-sm  focus:outline-none h-[60px]  block md:w-[300px] p-3 "
+                        className="bg-gray-50  text-gray-900 text-sm  focus:outline-none h-[60px]  block w-full  p-3 "
                         placeholder="Email Address"
                         required
                       />
