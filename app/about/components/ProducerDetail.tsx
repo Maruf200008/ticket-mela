@@ -14,7 +14,7 @@ export default function ProducerDetail() {
     <div>
       <div className=" bg-white shadow-xl shadow-gray-400/40 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto  border-b-[10px]  px-10 border-secondary  ">
         <ScrollTrigger onEnter={() => setCounterOn(true)}>
-          <div className=" grid grid-cols-4 gap-10 w-full pb-5">
+          <div className=" grid md:grid-cols-4 gap-10 w-full md:px-20 pb-5">
             <div className=" flex items-center gap-5">
               <div className=" bg-neutral-100 px-5 mb-10">
                 <Image src={award} alt="award" width={55} className=" mt-28 " />

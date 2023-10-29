@@ -8,18 +8,18 @@ export default function ContactWithUs() {
         <PiFilmReelFill />
       </div>
       <p className=" text-neutral-500 pt-3">Contact With Us</p>
-      <div className=" w-[700px]">
+      <div className=" md:w-[700px]">
         <h1
-          className={`text-[60px] font-semibold leading-[65px] mt-5 ${josefin_sans.className}`}
+          className={` text-[40px] sm:text-[50px] md:text-[60px] font-semibold md:leading-[65px] mt-5 ${josefin_sans.className}`}
         >
           Feel Free to Write us Anytime
         </h1>
       </div>
 
-      <div className=" mt-[80px]  w-[750px]">
+      <div className=" mt-[80px]  md:w-[750px]">
         <form>
           <div className=" space-y-4">
-            <div className=" grid grid-cols-2 gap-5">
+            <div className=" grid sm:grid-cols-2 gap-5">
               <div>
                 <input
                   required
@@ -37,7 +37,7 @@ export default function ContactWithUs() {
                 />
               </div>
             </div>
-            <div className=" grid grid-cols-2 gap-5">
+            <div className=" grid sm:grid-cols-2 gap-5">
               <div>
                 <input
                   required

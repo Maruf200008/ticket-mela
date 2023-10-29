@@ -25,7 +25,7 @@ export default function TicketQuantity({ price }) {
   };
   return (
     <div>
-      <div className=" mt-10 w-[250px]">
+      <div className=" mt-10 w-full md:w-[250px]">
         {" "}
         <p className=" text-xl font-semibold">Ticket Quantity</p>
         <div className=" mt-4">

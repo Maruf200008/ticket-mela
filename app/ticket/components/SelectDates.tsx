@@ -78,10 +78,10 @@ export default function SelectDates() {
       <div className=" ">
         <div
           onClick={() => setToggle(!toggle)}
-          className=" flex items-center justify-start gap-10 w-[350px] p-4 bg-white border-secondary border group  rounded-md cursor-pointer"
+          className=" flex  items-center justify-between gap-5 md:gap-10 w-full md:w-[350px] p-4 bg-white border-secondary border group  rounded-md cursor-pointer"
         >
           <div>
-            <p className=" text-[25px] font-semibold text-neutral-500 transition group-hover:text-neutral-800">
+            <p className=" text-[18px] md:ext-[25px] font-semibold text-neutral-500 transition group-hover:text-neutral-800 order-last md:order-first">
               Select Your Theatre
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function SelectDates() {
         )}
         {toggle ? (
           <div>
-            <div className=" absolute bg-white shadow-orange-500/10  shadow-xl p-7  w-[400px] mt-[10px] rounded-md z-50">
+            <div className=" absolute bg-white shadow-orange-500/10  shadow-xl p-7 w-full  md:w-[400px] mt-[10px] rounded-md z-50">
               <ul className=" space-y-3">
                 <li
                   onClick={() =>
@@ -210,7 +210,7 @@ export default function SelectDates() {
         )}
       </div>
       <div className=" mt-[120px]">
-        <div className=" border border-neutral-300 p-4 w-[300px] rounded-md cursor-pointer ">
+        <div className=" border border-neutral-300 p-4 w-full md:w-[300px] rounded-md cursor-pointer ">
           <div
             onClick={() => setShowCalander(!showCalander)}
             className="  group transition flex items-center gap-3 text-neutral-500"
@@ -218,12 +218,12 @@ export default function SelectDates() {
             <div className="  group-hover:text-secondary transition">
               <FaCalendarAlt />
             </div>
-            <h2 className=" text-xl font-semibold group-hover:text-secondary transition">
+            <h2 className=" text-[18px] md:text-xl font-semibold group-hover:text-secondary transition">
               {!fullDate ? " Select Date" : fullDate}
             </h2>
           </div>
           {showCalander ? (
-            <div className=" z-50 absolute w-[350px] bg-white mt-10 p-6 space-x-3 shadow-xl shadow-neutral-300">
+            <div className=" z-50 absolute md:w-[350px] bg-white mt-10 p-6 space-x-3 shadow-xl shadow-neutral-300">
               <Calendar onChange={handleClander} value={date} />
             </div>
           ) : (
@@ -234,14 +234,14 @@ export default function SelectDates() {
 
       <div className=" my-10">
         <h1 className=" text-xl font-semibold">Select Movie</h1>
-        <div className=" w-[550px] grid grid-cols-3 gap-4 mt-5">
+        <div className=" md:w-[550px] grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5">
           {moviesPoster.map((data) => (
             <div
               key={data.id}
               className=" relative overflow-hidden border-secondary border-2 "
             >
               {showTick && showTick === data?.title ? (
-                <div className=" absolute z-40 translate-y-20 translate-x-16 cursor-pointer bg-primary p-2 rounded-full">
+                <div className=" absolute z-40  mt-[150px]  md:mt-[70px] translate-x-[120px] md:translate-x-16 cursor-pointer bg-primary p-2 rounded-full">
                   <Image
                     onClick={() => setShowTick("")}
                     src={tick}
@@ -255,7 +255,7 @@ export default function SelectDates() {
               <Image
                 onClick={() => handleClik(data?.title)}
                 src={data?.img}
-                alt="poster1"
+                alt="poster"
                 className=" hover:scale-110  cursor-pointer transition duration-700 ease-in-out "
               />
             </div>

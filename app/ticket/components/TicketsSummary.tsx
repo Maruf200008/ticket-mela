@@ -128,18 +128,18 @@ export default function TicketsSummary() {
     }
   };
   return (
-    <div>
-      <h2 className=" mb-5 text-xl font-semibold text-primary">
+    <div className=" w-full">
+      <h2 className=" mb-5 text-xl text-center  font-semibold text-primary mt-10 md:mt-0">
         Tickets Summary
       </h2>
       <div className="  bg-white shadow-xl w-full shadow-gray-300/20 p-5 rounded-md  ">
         <div className=" border-b pb-5">
-          <div className=" flex gap-4 items-center">
+          <div className=" flex flex-col md:flex-row justify-center gap-4 items-center">
             <div className=" rounded-md overflow-hidden">
               <Image src={poster1} alt="psoter" width={130} />
             </div>
-            <div className=" space-y-1">
-              <p className=" rounded-md border border-neutral-500 w-[40px] px-2">
+            <div className=" flex items-center md:items-start flex-col space-y-1">
+              <p className=" text-center rounded-md border border-neutral-500 w-[40px] px-2">
                 2D
               </p>
               <h1 className=" text-[20px] font-semibold text-primary">
@@ -153,7 +153,7 @@ export default function TicketsSummary() {
           {TicketInfo.map((data, index) => (
             <div
               key={index}
-              className=" mt-5 flex items-center justify-between"
+              className=" mt-5 flex flex-col sm:flex-row md:items-center gap-4 justify-between"
             >
               <div className=" flex items-center gap-3">
                 <Image src={data?.icon} alt="location" width={20} />

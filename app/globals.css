@@ -54,6 +54,52 @@
   background-size: cover;
 }
 
+.aboutContainer {
+  background-image: url("../app/images/about/bgDiscoverMore.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.studentContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("../app/images/about/bg-discount-for-student.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.4;
+}
+.contactContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("../app/images/about/background-map-contact-page.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.3; /* Adjust the opacity value (0.0 to 1.0) */
+}
+
+@media only screen and (max-width: 766px) {
+  .studentContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../app/images/about/bg-discount-for-student.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.4;
+  }
+}
+
 /* loading animation */
 .container {
   height: 100vh;

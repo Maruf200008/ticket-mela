@@ -20,7 +20,7 @@ export default function SelectShowTime() {
       <div className=" pt-10">
         <p className=" text-xl font-semibold">Select Show Time</p>
         <div className=" space-y-5">
-          <div className=" flex items-center justify-between my-4 bg-secondary p-4 rounded-md">
+          <div className=" flex flex-col md:flex-row gap-4 items-center justify-between my-4 bg-secondary p-4 rounded-md">
             <div>
               <h1 className=" text-xl text-white font-semibold">Hall 1</h1>
             </div>
@@ -51,11 +51,11 @@ export default function SelectShowTime() {
               </div>
             </div>
           </div>
-          <div className=" flex items-center justify-between my-4 bg-secondary p-4 rounded-md">
+          <div className=" flex flex-col md:flex-row  gap-3 items-center justify-between my-4 bg-secondary p-4 rounded-md">
             <div>
               <h1 className=" text-xl text-white font-semibold">Hall 2</h1>
             </div>
-            <div className=" flex items-center gap-3 ">
+            <div className=" flex flex-wrap items-center gap-3 ">
               <div
                 onClick={() =>
                   handleSelectDate({ time: "11:30 AM", hall: "Hall 2" })

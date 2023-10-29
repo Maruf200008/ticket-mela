@@ -15,14 +15,14 @@ export default function Feedbacks() {
           </div>
           <p className=" text-neutral-500 font-semibold mt-3">Our Feedbacks</p>
           <h2
-            className={` text-[35px]  md:text-[45px] lg:text-[55px] font-bold md:leading-[70px] mt-6 ${josefin_sans.className}`}
+            className={` text-[33px]  md:text-[45px] lg:text-[55px] font-bold md:leading-[70px] mt-6 ${josefin_sans.className}`}
           >
             What They’re Talking About us?
           </h2>
           <FeedbackSlider />
         </div>
         <div>
-          <Image src={feedback} alt="feedback" />
+          <Image src={feedback} alt="feedback" className=" w-full" />
         </div>
       </div>
     </div>

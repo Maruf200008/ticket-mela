@@ -18,7 +18,7 @@ export default function page() {
               Tickets are on sale one day in advance
             </p>
 
-            <p className=" w-[900px] mx-auto text-neutral-700 flex text-center justify-center pt-5">
+            <p className=" md:w-[900px] mx-auto text-neutral-700 flex text-center justify-center pt-5">
               And now you can purchase tickets online through our "Entertainment
               Card" available at the ticket counters. You can book tickets over
               the phone through our member hotline and pick up your tickets
@@ -29,7 +29,7 @@ export default function page() {
               <h1 className=" text-2xl font-semibold text-secondary">
                 STAR Cineplex, Bashundhara City Shopping Mall
               </h1>
-              <div className=" grid grid-cols-2 gap-10 mt-10">
+              <div className=" grid md:grid-cols-2 gap-10 mt-10">
                 <div className=" bg-white shadow-xl  shadow-gray-400/30 p-7 rounded-md">
                   <h1 className=" text-2xl font-semibold text-primary">
                     2D Movies:

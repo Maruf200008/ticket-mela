@@ -22,7 +22,7 @@ export default function SelectSeat() {
       <div>
         <div>
           <p className=" text-xl font-semibold">Select Seat Type</p>
-          <div className=" mt-5 flex items-center gap-4">
+          <div className=" mt-5 flex flex-col md:flex-row md:items-center gap-4">
             <div className="flex gap-3 items-center px-6 py-2 border border-gray-300 rounded ">
               {seatType !== "" && seatType === "Lounger" ? (
                 <div

@@ -64,7 +64,7 @@ export default function FeedbackSlider() {
                     <Image
                       src={message}
                       alt="message"
-                      className=" absolute right-3 -z-30  top-20"
+                      className=" absolute right-3 -z-30 top-[250px]  md:top-20"
                       width={250}
                     />
                     <Image
@@ -102,7 +102,7 @@ export default function FeedbackSlider() {
                 </div>
               </div>
               <div className=" mt-5">
-                <p className=" text-[18px] w-full leading-10 text-neutral-600">
+                <p className=" w-full text-[18px] leading-10 text-neutral-600">
                   This is due to their excellent service, competitive pricing
                   and customer support. It's refresing to get such a personal
                   touch. Duis aute lorem ipsum is simply free text available in
