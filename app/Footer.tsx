@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BsFillSendFill } from "react-icons/bs";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import logo from "./images/footerLogo.png";
+import sslBanner from "./images/sslcommerz-banner.webp";
 
 export default function Footer() {
   return (
@@ -166,7 +167,10 @@ export default function Footer() {
         </div>
       </div>
       <div className=" bg-neutral-900 py-6 text-center">
-        <p className=" text-neutral-500">Copyright 2023 by Mohammad Maruf</p>
+        <Image src={sslBanner} alt="sslBanner" />
+        <p className=" text-neutral-500 mt-5">
+          Copyright 2023 by Mohammad Maruf
+        </p>
       </div>
     </div>
   );

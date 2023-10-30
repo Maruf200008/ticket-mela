@@ -57,12 +57,12 @@ export default function Header() {
             />
           </Link>
           <div className="flex md:order-2">
-            <Link
-              href="ticket"
+            <button
+              onClick={handleLogOut}
               className=" bg-primary px-8 text-white font-semibold py-2 hidden md:block"
             >
-              Get Ticket
-            </Link>
+              Log Out
+            </button>
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"

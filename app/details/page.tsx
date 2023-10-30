@@ -6,7 +6,7 @@ import TopCast from "./components/TopCast";
 export default function page() {
   return (
     <div className="my-20 max-w-screen-xl   mx-auto p-4  ">
-      <div className=" flex items-center justify-between w-full">
+      <div className=" flex gap-10 flex-col md:flex-row md:items-center justify-between w-full">
         <div>
           <h1 className=" text-[35px] font-semibold">Bellbottom</h1>
           <p className=" text-neutral-400">Action, Thriller / 2h 3m</p>
