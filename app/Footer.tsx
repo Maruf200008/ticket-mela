@@ -66,9 +66,14 @@ export default function Footer() {
                 <p className=" text-xl font-semibold leading-10">
                   Buy movie tickets easily with <br /> Aovis system nationwide
                 </p>
-                <button className=" bg-secondary px-3 py-2 hover:bg-white hover:text-secondary transition ">
-                  Get Your Ticket
-                </button>
+                <div className=" mt-5">
+                  <Link
+                    href="/ticket"
+                    className=" bg-secondary px-3 py-2 hover:bg-white hover:text-secondary transition "
+                  >
+                    Get Your Ticket
+                  </Link>
+                </div>
               </div>
               <div className=" lg:mr-[90px] mt-10 sm:mt-0">
                 <h2 className=" text-xl text-secondary font-semibold">

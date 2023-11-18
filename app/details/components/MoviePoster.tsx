@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import poster from "../../images/movieDetails/bellBottom1.jpg";
+import poster from "../../images/movieDetails/poster.jpg";
 import icon from "../../images/movieIcon.png";
 
 export default function MoviePoster() {
