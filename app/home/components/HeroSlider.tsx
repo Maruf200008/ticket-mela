@@ -1,10 +1,8 @@
 "use client";
 import Image from "next/image";
-import { FaArrowLeft, FaArrowRightLong } from "react-icons/fa6";
 import poster1 from "../../images/poster/poster1.jpg";
 import poster2 from "../../images/poster/poster2.jpg";
 import poster3 from "../../images/poster/poster3.jpg";
-import fullPoster from "../../images/poster1.jpg";
 
 export default function HeroSlider() {
   const handlePrev = () => {
@@ -15,81 +13,36 @@ export default function HeroSlider() {
   };
   return (
     <div className=" h-[800px]">
-      <div className=" container absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[1000px] h-[600px] bg-[#f5f5f5] shadow-lg">
-        <div className="slide">
-          <div className="item">
-            <div className="content">
-              <div className="name">Switzerland</div>
-              <div className="des">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Deleniti consectetur a, nulla eligendi similique mollitia
-                repudiandae harum ab tenetur, distinctio ex ut, architecto illo
-                labore.
-              </div>
-              <button>See More</button>
-            </div>
-          </div>
-          <div className="">
-            <Image src={fullPoster} alt="poster1" />
-            <div className="content">
-              <div className="name">Finland</div>
-              <div className="des">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Deleniti consectetur a, nulla eligendi similique mollitia
-                repudiandae harum ab tenetur, distinctio ex ut, architecto illo
-                labore.
-              </div>
-              <button>See More</button>
-            </div>
-          </div>
-          <div className="item overflow-hidden">
-            <div className=" ">
-              <Image src={poster1} alt="poster1" />
-            </div>
-            <div className="content">
-              <div className="name">Iceland</div>
-              <div className="des">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Deleniti consectetur a, nulla eligendi similique mollitia
-                repudiandae harum ab tenetur, distinctio ex ut, architecto illo
-                labore.
-              </div>
-              <button>See More</button>
-            </div>
-          </div>
-          <div className="item overflow-hidden">
-            <div className=" ">
-              <Image src={poster2} alt="poster1" />
-            </div>
-            <div className="content">
-              <div className="name">Iceland</div>
-              <div className="des">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Deleniti consectetur a, nulla eligendi similique mollitia
-                repudiandae harum ab tenetur, distinctio ex ut, architecto illo
-                labore.
-              </div>
-              <button>See More</button>
-            </div>
-          </div>
-          <div className="item overflow-hidden">
-            <div className=" ">
-              <Image src={poster3} alt="poster1" />
-            </div>
-            <div className="content">
-              <div className="name">Iceland</div>
-              <div className="des">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Deleniti consectetur a, nulla eligendi similique mollitia
-                repudiandae harum ab tenetur, distinctio ex ut, architecto illo
-                labore.
-              </div>
-              <button>See More</button>
-            </div>
-          </div>
+      <div className="gallary  w-full bg-slate-400 flex items-center justify-center">
+        <div className="gallary-container w-full flex h-[400px] justify-center items-center max-w-[1000px] mx-0 relative">
+          <Image
+            className="gallary-item-1 gallary-item h-[200px] opacity-0 absolute"
+            src={poster1}
+            alt="posert"
+          />
+          <Image
+            className="gallary-item-2 gallary-item"
+            src={poster2}
+            alt="posert"
+          />
+          <Image
+            className="gallary-item-3 gallary-item"
+            src={poster3}
+            alt="posert"
+          />
+          <Image
+            className="gallary-item-4 gallary-item"
+            src={poster3}
+            alt="posert"
+          />
+          <Image
+            className="gallary-item-5 gallary-item"
+            src={poster3}
+            alt="posert"
+          />
         </div>
-        <div className="button flex items-center gap-3 justify-center ">
-          <button
+        <div className="gallry-controls ">
+          {/* <button
             onClick={handlePrev}
             className="prev bg-white px-5 py-3 rounded-md hover:bg-primary hover:text-white ease-in duration-300"
           >
@@ -100,7 +53,7 @@ export default function HeroSlider() {
             className="next bg-white px-5 py-3 rounded-md hover:bg-primary hover:text-white ease-in duration-300"
           >
             <FaArrowRightLong />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
