@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@preact/signals": "^1.2.1",
     "@reduxjs/toolkit": "^1.9.7",
     "next": "^13.5.4",
     "react": "latest",

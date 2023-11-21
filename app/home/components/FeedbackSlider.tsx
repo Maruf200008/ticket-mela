@@ -20,26 +20,32 @@ import { Autoplay, Navigation } from "swiper/modules";
 export default function FeedbackSlider() {
   const personData = [
     {
+      id: 1,
       name: "Ahmed Rahman",
       img: man1,
     },
     {
+      id: 2,
       name: "Tahmina Ahmed",
       img: man2,
     },
     {
+      id: 3,
       name: "Farhan Khan",
       img: man3,
     },
     {
+      id: 4,
       name: "Nusrat Jahan",
       img: man4,
     },
     {
+      id: 5,
       name: "Aryan Islam",
       img: man5,
     },
     {
+      id: 6,
       name: "Sumaiya Akter",
       img: man6,
     },
@@ -56,7 +62,7 @@ export default function FeedbackSlider() {
         className="mySwiper  relative group  "
       >
         {personData.map((data, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={data?.id}>
             <div>
               <div className=" w-full md:flex items-center gap-7">
                 <div className="bg-secondary w-[150px]   rounded-full p-2">

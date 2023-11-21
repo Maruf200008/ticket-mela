@@ -94,7 +94,7 @@ export default function HeroSlider() {
                 className=" flex items-center justify-center ease-in-out duration-300"
               >
                 <Image
-                  className={`gallary-item-${movie?.id} gallary-item   `}
+                  className={`gallary-item-${movie?.id} gallary-item `}
                   src={movie?.img}
                   alt="posert"
                 />
