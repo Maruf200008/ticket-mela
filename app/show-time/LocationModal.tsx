@@ -38,6 +38,11 @@ export default function LocationModal({
     },
   ];
 
+  const handleClick = (value) => {
+    locationHandle(value);
+    handleToggle();
+  };
+
   return (
     <div>
       <div className=" flex items-center justify-center">
@@ -45,7 +50,7 @@ export default function LocationModal({
         <div
           aria-hidden="true"
           className={
-            !toggle
+            toggle
               ? "overflow-y-auto overflow-x-hidden fixed flex  z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
               : " hidden"
           }
@@ -57,7 +62,7 @@ export default function LocationModal({
               <div className="flex items-center justify-end p-4 md:p-5 text-xl ">
                 <div
                   onClick={handleToggle}
-                  className=" cursor-pointer bg-red-200 rounded-full hover:bg-red-500 hover:text-white p-2 ease-out duration-300"
+                  className=" cursor-pointer bg-red-200 rounded-full hover:bg-red-500 hover:text-white p-2 ease-out duration-300 text-red-500"
                 >
                   <RxCross2 />
                 </div>
@@ -71,7 +76,7 @@ export default function LocationModal({
               <div className="p-4 md:p-5 space-y-4">
                 {locationData?.map((location, index) => (
                   <div
-                    onClick={() => locationHandle(location?.title)}
+                    onClick={() => handleClick(location?.title)}
                     key={index}
                     className=" flex items-center  justify-start gap-5 border border-red-200 hover:border-primary px-4 rounded-md py-3 cursor-pointer ease-out duration-300   hover:shadow-xl"
                   >
