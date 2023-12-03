@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import TrailerModal from "../home/components/TrailerModal";
 import others from "../images/OthersTicket.png";
 import infoImg from "../images/info.png";
 import playImg from "../images/playButton.png";
@@ -16,10 +18,23 @@ export default function ShowTimeDetails({ hall }) {
   } else if (hall === "Others") {
     ticketQuality = others;
   }
+
+  const [toggle, setTogglae] = useState(false);
+  const [trailer, setTrailer] = useState("");
+
+  const handleToogle = (value) => {
+    setTogglae(!toggle);
+    setTrailer(value);
+  };
   return (
     <div>
       <div className=" grid grid-cols-12 gap-3 p-3 rounded-md shadow-xl  ">
         <div className=" col-span-6 ">
+          <TrailerModal
+            handleToogle={handleToogle}
+            toggle={toggle}
+            trailer={trailer}
+          />
           <div className=" flex items-center gap-5">
             <div className=" rounded-md overflow-hidden">
               <Image src={poster1} alt="poster" height={400} />
@@ -60,7 +75,10 @@ export default function ShowTimeDetails({ hall }) {
                 </div>
               </div>
               <div className=" flex items-center justify-center gap-5  p-4 mt-5 ">
-                <div className=" bg-[#de7207] ease-out duration-300 px-6 py-2 rounded-md hover:bg-[#de9e07]  text-white cursor-pointer flex items-center gap-3">
+                <Link
+                  href="/details"
+                  className=" bg-[#de7207] ease-out duration-300 px-6 py-2 rounded-md hover:bg-[#de9e07]  text-white cursor-pointer flex items-center gap-3"
+                >
                   <Image
                     src={infoImg}
                     alt="infoImg"
@@ -68,8 +86,15 @@ export default function ShowTimeDetails({ hall }) {
                     style={{ filter: "hue-rotate(90deg)" }}
                   />
                   <p>Details</p>
-                </div>
-                <div className=" bg-[#035594] flex items-center gap-3  hover:bg-[#03355c] text-white ease-out duration-300 px-3 py-2 rounded-md cursor-pointer">
+                </Link>
+                <div
+                  onClick={() =>
+                    handleToogle(
+                      "https://www.youtube.com/embed/RHuMV3R9M4w?si=4dcc4ZmuE7m2f3Ml"
+                    )
+                  }
+                  className=" bg-[#035594] flex items-center gap-3  hover:bg-[#03355c] text-white ease-out duration-300 px-3 py-2 rounded-md cursor-pointer"
+                >
                   <Image
                     src={playImg}
                     alt="playImg"
