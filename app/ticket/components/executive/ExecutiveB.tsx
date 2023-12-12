@@ -2,10 +2,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import activeSeatImg from "../../../images/ticket/activeSeat.png";
-import bookSeatImg from "../../../images/ticket/bookSeat.png";
 import seatImg from "../../../images/ticket/seat.png";
 
-export default function ExecutiveD() {
+export default function ExecutiveB() {
   const [seatData1, setSeatData1] = useState([
     {
       id: 1,
@@ -43,6 +42,12 @@ export default function ExecutiveD() {
       seletcted: false,
       seatIsBooking: true,
     },
+    {
+      id: 7,
+      img: seatImg,
+      seletcted: false,
+      seatIsBooking: true,
+    },
   ]);
 
   const [seatData2, setSeatData2] = useState([
@@ -54,30 +59,36 @@ export default function ExecutiveD() {
     },
     {
       id: 2,
-      img: bookSeatImg,
+      img: seatImg,
       seletcted: false,
-      seatIsBooking: false,
+      seatIsBooking: true,
     },
     {
       id: 3,
-      img: bookSeatImg,
+      img: seatImg,
       seletcted: false,
-      seatIsBooking: false,
+      seatIsBooking: true,
     },
     {
       id: 4,
-      img: bookSeatImg,
+      img: seatImg,
       seletcted: false,
-      seatIsBooking: false,
+      seatIsBooking: true,
     },
     {
       id: 5,
-      img: bookSeatImg,
+      img: seatImg,
       seletcted: false,
-      seatIsBooking: false,
+      seatIsBooking: true,
     },
     {
       id: 6,
+      img: seatImg,
+      seletcted: false,
+      seatIsBooking: true,
+    },
+    {
+      id: 7,
       img: seatImg,
       seletcted: false,
       seatIsBooking: true,
@@ -116,7 +127,7 @@ export default function ExecutiveD() {
     <div>
       <div className=" grid gap-10 grid-cols-2 mt-10">
         <div className=" flex items-center justify-between">
-          <p className=" text-slate-400">D</p>
+          <p className=" text-slate-400">B</p>
           <div className=" flex items-center gap-3 justify-end">
             {seatData1.map((seat) => {
               return seat?.seatIsBooking ? (
@@ -184,7 +195,7 @@ export default function ExecutiveD() {
               );
             })}
           </div>
-          <p className=" text-slate-400">D</p>
+          <p className=" text-slate-400">B</p>
         </div>
       </div>
     </div>

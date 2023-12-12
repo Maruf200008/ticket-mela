@@ -4,6 +4,9 @@ import { useState } from "react";
 import bookSeatImg from "../../images/ticket/bookSeat.png";
 import screenImg from "../../images/ticket/screen.png";
 import seatImg from "../../images/ticket/seat.png";
+import ExecutiveA from "./executive/ExecutiveA";
+import ExecutiveB from "./executive/ExecutiveB";
+import ExecutiveC from "./executive/ExecutiveC";
 import ExecutiveD from "./executive/ExecutiveD";
 import ExecutiveE from "./executive/ExecutiveE";
 import ExecutiveF from "./executive/ExecutiveF";
@@ -52,7 +55,7 @@ export default function ScreenDetails() {
 
   return (
     <div>
-      <div className=" flex items-center w-full justify-center  ">
+      <div className=" flex items-center w-full justify-center ">
         <Image src={screenImg} alt="screenImg" width={700} />
       </div>
       <div className=" mt-10 p-4 space-y-7">
@@ -61,7 +64,15 @@ export default function ScreenDetails() {
         <ExecutiveE />
         <p>Premium - 340/-</p>
         <ExecutiveD />
-        <ExecutiveE />
+        <ExecutiveC />
+        <p>Platinum- 640/-</p>
+        <ExecutiveB />
+        <ExecutiveA />
+      </div>
+      <div className=" flex items-center justify-center w-full p-4 mt-10">
+        <button className=" bg-[#ff6969] ease-in duration-300 hover:bg-primary px-7 py-2 rounded-full text-white font-semibold shadow-xl">
+          Confirm & Pay
+        </button>
       </div>
     </div>
   );

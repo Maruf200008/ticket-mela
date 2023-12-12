@@ -5,25 +5,25 @@ import activeSeatImg from "../../../images/ticket/activeSeat.png";
 import bookSeatImg from "../../../images/ticket/bookSeat.png";
 import seatImg from "../../../images/ticket/seat.png";
 
-export default function ExecutiveD() {
+export default function ExecutiveA() {
   const [seatData1, setSeatData1] = useState([
     {
       id: 1,
-      img: seatImg,
+      img: bookSeatImg,
       seletcted: false,
-      seatIsBooking: true,
+      seatIsBooking: false,
     },
     {
       id: 2,
-      img: seatImg,
+      img: bookSeatImg,
       seletcted: false,
-      seatIsBooking: true,
+      seatIsBooking: false,
     },
     {
       id: 3,
-      img: seatImg,
+      img: bookSeatImg,
       seletcted: false,
-      seatIsBooking: true,
+      seatIsBooking: false,
     },
     {
       id: 4,
@@ -39,6 +39,12 @@ export default function ExecutiveD() {
     },
     {
       id: 6,
+      img: seatImg,
+      seletcted: false,
+      seatIsBooking: true,
+    },
+    {
+      id: 7,
       img: seatImg,
       seletcted: false,
       seatIsBooking: true,
@@ -54,9 +60,9 @@ export default function ExecutiveD() {
     },
     {
       id: 2,
-      img: bookSeatImg,
+      img: seatImg,
       seletcted: false,
-      seatIsBooking: false,
+      seatIsBooking: true,
     },
     {
       id: 3,
@@ -66,9 +72,9 @@ export default function ExecutiveD() {
     },
     {
       id: 4,
-      img: bookSeatImg,
+      img: seatImg,
       seletcted: false,
-      seatIsBooking: false,
+      seatIsBooking: true,
     },
     {
       id: 5,
@@ -78,9 +84,15 @@ export default function ExecutiveD() {
     },
     {
       id: 6,
-      img: seatImg,
+      img: bookSeatImg,
       seletcted: false,
-      seatIsBooking: true,
+      seatIsBooking: false,
+    },
+    {
+      id: 7,
+      img: bookSeatImg,
+      seletcted: false,
+      seatIsBooking: false,
     },
   ]);
 
@@ -116,7 +128,7 @@ export default function ExecutiveD() {
     <div>
       <div className=" grid gap-10 grid-cols-2 mt-10">
         <div className=" flex items-center justify-between">
-          <p className=" text-slate-400">D</p>
+          <p className=" text-slate-400">A</p>
           <div className=" flex items-center gap-3 justify-end">
             {seatData1.map((seat) => {
               return seat?.seatIsBooking ? (
@@ -184,7 +196,7 @@ export default function ExecutiveD() {
               );
             })}
           </div>
-          <p className=" text-slate-400">D</p>
+          <p className=" text-slate-400">A</p>
         </div>
       </div>
     </div>

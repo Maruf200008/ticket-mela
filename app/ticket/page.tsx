@@ -8,13 +8,13 @@ import ScreenDetails from "./components/screenDetails";
 
 export default function page() {
   return (
-    <div className="my-20 max-w-screen-xl mx-auto p-4">
-      <div className=" grid md:grid-cols-12 w-full gap-5">
-        <div className=" col-span-4 bg-neutral-100 rounded-lg overflow-hidden">
+    <div className="my-20 max-w-screen-xl mx-auto p-4 ">
+      <div className=" grid md:grid-cols-12 w-full gap-16">
+        <div className=" col-span-4 rounded-lg overflow-hidden">
           <div>
             <div className=" relative">
               <Image src={poster} alt="poster" height={600} />
-              <div className=" bg-gradient-to-t from-neutral-100 via-transparent absolute top-0 w-full h-full"></div>
+              <div className=" bg-gradient-to-t from-white via-transparent absolute top-0 w-full h-full"></div>
             </div>
             <div className=" p-5 my-10 space-y-2">
               <p className=" font-semibold text-neutral-500">
@@ -63,7 +63,7 @@ export default function page() {
             </div>
           </div>
         </div>
-        <div className="  col-span-7 w-full ">
+        <div className="  col-span-8 w-full   ">
           <ScreenDetails />
         </div>
       </div>
