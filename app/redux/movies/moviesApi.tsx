@@ -14,12 +14,16 @@ const movieApi = apiSlice.injectEndpoints({
     movieDetails: builder.query({
       query: (id) => `/movies/categories/${id}`,
     }),
+    getMovie: builder.query({
+      query: (id) => `/movies/detail/${id}`,
+    }),
   }),
 });
 
 export const {
   useUpcommingMovieQuery,
   useTheaterMoviesQuery,
+  useGetMovieQuery,
   useMoviesCatagoriesQuery,
   useMovieDetailsQuery,
 } = movieApi;

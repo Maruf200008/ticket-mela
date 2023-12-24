@@ -80,7 +80,7 @@ export default function MoviesCard({ movie }) {
               </div>
               {!releaseDate ? (
                 <Link
-                  href="/ticket"
+                  href={`/ticket/${_id}`}
                   className=" hover:bg-primary p-2 cursor-pointer transition delay-150 duration-300 ease-in-out  hover:text-white bg-neutral-200  font-semibold text-neutral-500  "
                 >
                   Get Ticket

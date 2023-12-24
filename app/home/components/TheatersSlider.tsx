@@ -61,7 +61,7 @@ export default function TheatersSlider() {
                   <p>Play Trailer</p>
                 </div>
                 <Link
-                  href="/ticket"
+                  href={`/ticket/${movie?._id}`}
                   className=" flex items-center justify-center uppercase bg-[#9e450e] hover:bg-[#803506] ease-out duration-300 px-4 py-2 rounded-full text-white font-semibold gap-3"
                 >
                   <Image src={ticketImg} alt="ticketImg" width={20} />
@@ -71,7 +71,7 @@ export default function TheatersSlider() {
             </div>
           </div>
           <div className=" mt-4 space-y-2">
-            <Link href="/">
+            <Link href={`/details/${movie?._id}`}>
               <h1 className=" text-xl font-semibold hover:text-primary transition">
                 {movie?.name}
               </h1>
@@ -82,9 +82,12 @@ export default function TheatersSlider() {
               {movie?.catagory.map((c, index) => {
                 return (
                   <div key={index}>
-                    <p className=" bg-slate-100 py-1 border-slate-300 cursor-pointer hover:bg-slate-200 ease-out duration-300 border px-2 rounded-full text-[12px]">
+                    <Link
+                      href={`movie_cat/${c}`}
+                      className=" bg-slate-100 py-1 border-slate-300 cursor-pointer hover:bg-slate-200 ease-out duration-300 border px-2 rounded-full text-[12px]"
+                    >
                       {c}
-                    </p>
+                    </Link>
                   </div>
                 );
               })}

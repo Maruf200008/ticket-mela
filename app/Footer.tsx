@@ -64,16 +64,8 @@ export default function Footer() {
             <div className=" grid p-4 sm:grid-cols-2 lg:grid-cols-4 mt-10">
               <div className=" space-y-5 xl:mr-[60px]">
                 <p className=" text-xl font-semibold leading-10">
-                  Buy movie tickets easily with <br /> Aovis system nationwide
+                  Buy movie tickets easily with Aovis system nationwide
                 </p>
-                <div className=" mt-5">
-                  <Link
-                    href="/ticket"
-                    className=" bg-secondary px-3 py-2 hover:bg-white hover:text-secondary transition "
-                  >
-                    Get Your Ticket
-                  </Link>
-                </div>
               </div>
               <div className=" lg:mr-[90px] mt-10 sm:mt-0">
                 <h2 className=" text-xl text-secondary font-semibold">
@@ -81,27 +73,27 @@ export default function Footer() {
                 </h2>
                 <ul className=" mt-7 space-y-7 text-sm text-neutral-600">
                   <li className=" hover:text-secondary transition ">
-                    <Link href="/" className="footer-list">
+                    <Link href="/movie_cat/Action" className="footer-list">
                       Action
                     </Link>
                   </li>
                   <li className=" hover:text-secondary transition ">
-                    <Link href="/" className="footer-list">
+                    <Link href="/movie_cat/Adventure" className="footer-list">
                       Adventure
                     </Link>
                   </li>
                   <li className=" hover:text-secondary transition ">
-                    <Link href="/" className="footer-list">
+                    <Link href="/movie_cat/Animation" className="footer-list">
                       Animation
                     </Link>
                   </li>
                   <li className=" hover:text-secondary transition ">
-                    <Link href="/" className="footer-list">
+                    <Link href="/movie_cat/Comedy" className="footer-list">
                       Comedy
                     </Link>
                   </li>
                   <li className=" hover:text-secondary transition ">
-                    <Link href="/" className="footer-list">
+                    <Link href="/movie_cat/Crime" className="footer-list">
                       Crime
                     </Link>
                   </li>
@@ -111,7 +103,7 @@ export default function Footer() {
                 <h2 className=" text-xl text-secondary font-semibold">Links</h2>
                 <ul className=" mt-7 space-y-7 text-sm text-neutral-600">
                   <li className=" hover:text-secondary transition">
-                    <Link href="/" className="footer-list">
+                    <Link href="/about" className="footer-list">
                       About
                     </Link>
                   </li>

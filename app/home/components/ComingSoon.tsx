@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import playImg from "../../images/playButton.png";
-import ticketImg from "../../images/ticket.png";
 
 // import required modules
 import { useUpcommingMovieQuery } from "@/app/redux/movies/moviesApi";
@@ -60,18 +59,14 @@ export default function ComingSoon() {
                   <Image src={playImg} alt="playImg" width={17} />
                   <p>Play Trailer</p>
                 </div>
-                <Link
-                  href="/ticket"
-                  className=" flex items-center justify-center uppercase bg-[#9e450e] hover:bg-[#803506] ease-out duration-300 px-4 py-2 rounded-full text-white font-semibold gap-3"
-                >
-                  <Image src={ticketImg} alt="ticketImg" width={20} />
-                  <button>Buy Tickets</button>
-                </Link>
+                <div className=" flex items-center justify-center bg-primary   px-4 py-2 rounded-full text-white font-semibold gap-3">
+                  <p>Comming Soon...</p>
+                </div>
               </div>
             </div>
           </div>
           <div className=" mt-4 space-y-2">
-            <Link href="/">
+            <Link href={`/details/${movie?._id}`}>
               <h1 className=" text-xl font-semibold hover:text-primary transition">
                 {movie?.name}
               </h1>

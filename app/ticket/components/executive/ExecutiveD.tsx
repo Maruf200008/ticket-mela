@@ -5,7 +5,7 @@ import activeSeatImg from "../../../images/ticket/activeSeat.png";
 import bookSeatImg from "../../../images/ticket/bookSeat.png";
 import seatImg from "../../../images/ticket/seat.png";
 
-export default function ExecutiveD() {
+export default function ExecutiveD({ handleAmount }) {
   const [seatData1, setSeatData1] = useState([
     {
       id: 1,
@@ -95,11 +95,11 @@ export default function ExecutiveD() {
       }
       return seat; // Return the modified seat object
     });
+
     setSeatData1(updateseatData);
   };
 
   const handleSeat2 = (id) => {
-    console.log("sdfsd");
     const updateseatData = seatData2.map((seat) => {
       if (seat?.id === id) {
         if (seat?.seletcted) {
@@ -110,6 +110,7 @@ export default function ExecutiveD() {
       }
       return seat; // Return the modified seat object
     });
+
     setSeatData2(updateseatData);
   };
   return (
@@ -135,7 +136,10 @@ export default function ExecutiveD() {
                     src={seat?.img}
                     alt="seatImg"
                     width={35}
-                    onClick={() => handleSeat1(seat?.id)}
+                    onClick={() => {
+                      handleSeat1(seat?.id);
+                      handleAmount(340);
+                    }}
                     className=" cursor-pointer"
                   />
                 )
@@ -170,7 +174,10 @@ export default function ExecutiveD() {
                     src={seat?.img}
                     alt="seatImg"
                     width={35}
-                    onClick={() => handleSeat2(seat?.id)}
+                    onClick={() => {
+                      handleSeat2(seat?.id);
+                      handleAmount(340);
+                    }}
                     className=" cursor-pointer"
                   />
                 )

@@ -5,7 +5,7 @@ import activeSeatImg from "../../../images/ticket/activeSeat.png";
 import bookSeatImg from "../../../images/ticket/bookSeat.png";
 import seatImg from "../../../images/ticket/seat.png";
 
-export default function ExecutiveA() {
+export default function ExecutiveA({ handleAmount }) {
   const [seatData1, setSeatData1] = useState([
     {
       id: 1,
@@ -111,7 +111,6 @@ export default function ExecutiveA() {
   };
 
   const handleSeat2 = (id) => {
-    console.log("sdfsd");
     const updateseatData = seatData2.map((seat) => {
       if (seat?.id === id) {
         if (seat?.seletcted) {
@@ -147,7 +146,10 @@ export default function ExecutiveA() {
                     src={seat?.img}
                     alt="seatImg"
                     width={35}
-                    onClick={() => handleSeat1(seat?.id)}
+                    onClick={() => {
+                      handleSeat1(seat?.id);
+                      handleAmount(640);
+                    }}
                     className=" cursor-pointer"
                   />
                 )
@@ -182,7 +184,10 @@ export default function ExecutiveA() {
                     src={seat?.img}
                     alt="seatImg"
                     width={35}
-                    onClick={() => handleSeat2(seat?.id)}
+                    onClick={() => {
+                      handleSeat2(seat?.id);
+                      handleAmount(640);
+                    }}
                     className=" cursor-pointer"
                   />
                 )
